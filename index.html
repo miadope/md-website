@@ -188,7 +188,9 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
 .carousel-btn:hover{transform:translate(2px,-2px);box-shadow:2px -2px 0 0 #333;}
 .review-carousel{
   display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;
-  margin-top:16px;padding-bottom:8px;scrollbar-width:none;
+  /* overflow-x:auto also makes overflow-y auto, so the up-right card shadow
+     needs room at the top and right or it gets clipped by the scroll box */
+  margin-top:8px;padding:8px 8px 0 0;scrollbar-width:none;
 }
 .review-carousel::-webkit-scrollbar{display:none;}
 .review-carousel .review-card{
@@ -196,7 +198,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
 }
 .review-card{
   background:#fff;border:1.5px solid var(--color-dusty-sky);border-radius:26px;padding:34px;
-  box-shadow:var(--shadow-card-sm);display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:var(--shadow-card);display:flex;flex-direction:column;justify-content:space-between;
 }
 .review-card p{font-size:15px;line-height:1.65;color:var(--color-charcoal);margin:0 0 20px;}
 .review-card .quote-mark{font-family:var(--font-serif);font-size:44px;color:var(--color-red);line-height:1;margin-bottom:6px;display:block;}
