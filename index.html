@@ -231,6 +231,12 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
   }
   nav.links.open a{font-size:16px;padding:4px 0;}
   .hero h1{font-size:42px;}
+  /* On phones the 110px portrait sat inline in a 56px line box, punching a
+     gap between the heading lines. Put it on its own row, pinned right. */
+  .hero-greeting{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px;}
+  .greet-text{flex:1 1 auto;}
+  .hero h1 br{display:none;}
+  .hero-portrait{margin:0;flex:0 0 auto;}
   h2{font-size:32px;}
   .do-grid{grid-template-columns:1fr;}
   .how-grid{grid-template-columns:1fr;}
@@ -278,7 +284,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
   <section class="hero">
     <div class="wrap">
       <div class="eyebrow">Operations Partner &amp; Consultant for Founders</div>
-      <h1>Hi, <em class="accent">I'm Maria</em> <img class="hero-portrait" src="images/photo3.jpg" alt="Maria Dopheide"><br>I help founders build the <em class="accent">systems</em> that hold, so <em class="accent">growth</em> doesn't outrun the operations behind it.</h1>
+      <h1><span class="hero-greeting"><span class="greet-text">Hi, <em class="accent">I'm Maria</em></span> <img class="hero-portrait" src="images/photo3.jpg" alt="Maria Dopheide"></span><br>I help founders build the <em class="accent">systems</em> that hold, so <em class="accent">growth</em> doesn't outrun the operations behind it.</h1>
       <p class="hero-sub">A steady operational partner for founders and the operators around them, with a specialism in ADHD-founder environments.</p>
       <div class="hero-cta">
         <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Book a Free Discovery Call ↗</a>
