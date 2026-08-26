@@ -1,0 +1,5 @@
+# Static site: index.html and images/ sit at the repo root, so there is
+# nothing to build — Netlify just publishes the root directory as-is.
+[build]
+  publish = "."
+  command = ""
