@@ -9,9 +9,9 @@
   --color-red:#FF3131;
   --font-serif:'Playfair Display', 'Times New Roman', serif;
   --font-sans:'Manrope', ui-sans-serif, system-ui, sans-serif;
-  --shadow-card: 5px -5px 0px 0px #333333;
-  --shadow-btn: 4px -4px 0px 0px #333333;
-  --shadow-card-sm: 3px -3px 0px 0px #333333;
+  --shadow-card: 5px -5px 0px 0px #000000;
+  --shadow-btn: 4px -4px 0px 0px #000000;
+  --shadow-card-sm: 3px -3px 0px 0px #000000;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -52,7 +52,7 @@ nav.links a:hover{color:var(--color-coral-link);}
   letter-spacing:0.02em;text-transform:uppercase;color:#000;text-decoration:none;
   box-shadow:var(--shadow-btn);transition:transform .15s ease;
 }
-.btn:hover{transform:translate(2px,-2px);box-shadow:2px -2px 0 0 #333;color:#000;}
+.btn:hover{transform:translate(2px,-2px);box-shadow:2px -2px 0 0 #000;color:#000;}
 .btn-solid{background:var(--color-red);border-color:var(--color-red);color:#fff;}
 .btn-solid:hover{color:#fff;}
 
@@ -82,7 +82,7 @@ h2 em{font-style:italic;font-weight:400;}
 /* ---------- who i work with ---------- */
 .pills-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px;}
 .tag-pill{
-  border-radius:3000px;border:1.5px solid var(--color-charcoal);background:#fff;
+  border-radius:3000px;border:1.5px solid var(--color-ink-black);background:#fff;
   padding:16px 30px;font-family:var(--font-serif);font-size:20px;font-weight:400;
   box-shadow:var(--shadow-card-sm);
 }
@@ -90,7 +90,7 @@ h2 em{font-style:italic;font-weight:400;}
 /* ---------- what i do ---------- */
 .do-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:10px;}
 .do-card{
-  background:#fff;border:1.5px solid var(--color-charcoal);border-radius:26px;
+  background:#fff;border:1.5px solid var(--color-ink-black);border-radius:26px;
   padding:36px;box-shadow:var(--shadow-card);
 }
 .do-card .num{font-family:var(--font-serif);font-weight:300;font-size:36px;color:var(--color-red);display:block;margin-bottom:14px;}
@@ -99,7 +99,7 @@ h2 em{font-style:italic;font-weight:400;}
 .do-card.wide{grid-column:span 2;}
 
 /* ---------- ADHD section ---------- */
-.adhd-section{background:var(--color-charcoal);color:var(--color-warm-paper);border-radius:40px;margin:0 32px;padding:70px 48px;max-width:1136px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;}
+.adhd-section{background:var(--color-ink-black);color:var(--color-warm-paper);border-radius:40px;margin:0 32px;padding:70px 48px;max-width:1136px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;}
 .adhd-section h2{color:var(--color-warm-paper);}
 .adhd-section .index-mark{color:var(--color-red);}
 .adhd-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;margin-top:34px;align-items:start;}
@@ -131,7 +131,7 @@ h2 em{font-style:italic;font-weight:400;}
 .final-cta-content p{color:#f0f0ec;font-size:17px;max-width:420px;margin:0 0 30px;line-height:1.6;}
 
 /* ---------- footer ---------- */
-footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28px 0;}
+footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:28px 0;}
 .foot-bottom{display:flex;justify-content:space-between;font-size:13px;color:#999;flex-wrap:wrap;gap:14px;align-items:center;}
 .foot-links-inline{display:flex;gap:24px;flex-wrap:wrap;}
 .foot-links-inline a{color:var(--color-warm-paper);text-decoration:none;font-size:13px;}
@@ -175,7 +175,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
   font-family:var(--font-sans);font-size:16px;cursor:pointer;box-shadow:var(--shadow-btn);
   display:flex;align-items:center;justify-content:center;transition:transform .15s ease;
 }
-.carousel-btn:hover{transform:translate(2px,-2px);box-shadow:2px -2px 0 0 #333;}
+.carousel-btn:hover{transform:translate(2px,-2px);box-shadow:2px -2px 0 0 #000;}
 .review-carousel{
   display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;
   /* overflow-x:auto also makes overflow-y auto, so the up-right card shadow
@@ -187,7 +187,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
   scroll-snap-align:start;flex:0 0 calc(33.333% - 16px);min-width:280px;
 }
 .review-card{
-  background:#fff;border:1.5px solid var(--color-charcoal);border-radius:26px;padding:34px;
+  background:#fff;border:1.5px solid var(--color-ink-black);border-radius:26px;padding:34px;
   box-shadow:var(--shadow-card);display:flex;flex-direction:column;justify-content:space-between;
 }
 .review-card p{font-size:15px;line-height:1.65;color:var(--color-charcoal);margin:0 0 20px;}
@@ -200,7 +200,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
 .about-text p{font-size:16px;line-height:1.7;color:var(--color-charcoal);margin:0 0 20px;}
 .about-text p:first-child{font-family:var(--font-serif);font-size:24px;font-style:italic;color:#000;line-height:1.4;}
 .about-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-.fact-chip{border:1.5px solid #000;border-radius:3000px;padding:8px 18px;font-size:13px;font-weight:600;background:#fff;box-shadow:2px -2px 0 0 #333;}
+.fact-chip{border:1.5px solid #000;border-radius:3000px;padding:8px 18px;font-size:13px;font-weight:600;background:#fff;box-shadow:2px -2px 0 0 #000;}
 
 /* ---------- responsive ---------- */
 @media (max-width: 900px){
@@ -217,7 +217,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
     border-bottom:1.5px solid #000;
     padding:20px 32px 28px;
     gap:18px;
-    box-shadow:0 8px 0 0 rgba(51,51,51,0.15);
+    box-shadow:0 8px 0 0 rgba(0,0,0,0.15);
   }
   nav.links.open a{font-size:16px;padding:4px 0;}
   .hero h1{font-size:42px;}
