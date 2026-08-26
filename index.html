@@ -7,264 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-:root{
-  --color-warm-paper:#f5f5f3;
-  --color-ink-black:#000000;
-  --color-charcoal:#333333;
-  --color-pure-white:#ffffff;
-  --color-dusty-sky:#81aed9;
-  --color-cobalt-wash:#55a1ea;
-  --color-coral-link:#ff8562;
-  --color-red:#FF3131;
-  --font-serif:'Playfair Display', 'Times New Roman', serif;
-  --font-sans:'Manrope', ui-sans-serif, system-ui, sans-serif;
-  --shadow-card: 5px -5px 0px 0px #333333;
-  --shadow-btn: 4px -4px 0px 0px #333333;
-  --shadow-card-sm: 3px -3px 0px 0px #333333;
-}
-*{box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{
-  margin:0;
-  background:var(--color-warm-paper);
-  color:var(--color-ink-black);
-  font-family:var(--font-sans);
-  font-size:16px;
-  line-height:1.56;
-  letter-spacing:-0.01em;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-a{color:var(--color-coral-link);}
-.wrap{max-width:1200px;margin:0 auto;padding:0 32px;position:relative;}
-img{max-width:100%;display:block;}
-
-/* ---------- decorative squiggles ---------- */
-.squiggle{position:absolute;stroke:#000;stroke-width:1.5;fill:none;stroke-linecap:round;pointer-events:none;}
-
-/* ---------- nav ---------- */
-header{position:sticky;top:0;z-index:50;background:rgba(245,245,243,0.92);backdrop-filter:blur(6px);border-bottom:1.5px solid transparent;}
-.nav-inner{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;max-width:1200px;margin:0 auto;}
-.nav-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-serif);font-size:22px;font-weight:500;}
-.nav-logo img{height:34px;width:auto;}
-nav.links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
-nav.links a{color:var(--color-ink-black);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:-0.01em;}
-nav.links a:hover{color:var(--color-coral-link);}
-.burger{display:none;width:40px;height:40px;border-radius:50%;border:1.5px solid #000;align-items:center;justify-content:center;background:#fff;box-shadow:var(--shadow-btn);cursor:pointer;flex-direction:column;gap:4px;}
-.burger span{display:block;width:16px;height:1.5px;background:#000;}
-
-/* ---------- buttons ---------- */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  border-radius:3000px;border:1.5px solid #000;background:#fff;
-  padding:16px 34px;font-family:var(--font-sans);font-weight:600;font-size:14px;
-  letter-spacing:0.02em;text-transform:uppercase;color:#000;text-decoration:none;
-  box-shadow:var(--shadow-btn);transition:transform .15s ease;
-}
-.btn:hover{transform:translate(2px,-2px);box-shadow:2px -2px 0 0 #333;color:#000;}
-.btn-solid{background:var(--color-red);border-color:var(--color-red);color:#fff;}
-.btn-solid:hover{color:#fff;}
-
-/* ---------- hero ---------- */
-.hero{padding:70px 0 60px;position:relative;}
-.eyebrow{font-family:var(--font-sans);font-size:13px;text-transform:uppercase;letter-spacing:0.14em;color:var(--color-charcoal);margin-bottom:18px;}
-.hero h1{
-  font-family:var(--font-serif);font-weight:300;font-size:64px;line-height:1.08;
-  margin:0 0 26px;max-width:900px;
-}
-.hero h1 .accent{font-style:italic;font-weight:400;color:var(--color-red);}
-.hero-portrait{
-  width:110px;height:110px;border-radius:50%;object-fit:cover;border:1.5px solid #000;
-  display:inline-block;vertical-align:middle;margin:0 6px;
-}
-.hero-sub{font-size:18px;line-height:1.55;max-width:600px;color:var(--color-charcoal);margin-bottom:34px;}
-.hero-cta{display:flex;gap:16px;flex-wrap:wrap;}
-
-/* ---------- section basics ---------- */
-section{padding:80px 0;position:relative;}
-.section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:44px;}
-.index-mark{font-family:var(--font-serif);font-weight:300;font-size:22px;color:var(--color-red);}
-h2{font-family:var(--font-serif);font-weight:300;font-size:46px;line-height:1.05;margin:0;}
-h2 em{font-style:italic;font-weight:400;}
-.section-intro{max-width:640px;font-size:17px;color:var(--color-charcoal);margin-bottom:0;}
-
-/* ---------- who i work with ---------- */
-.pills-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px;}
-.tag-pill{
-  border-radius:3000px;border:1.5px solid var(--color-charcoal);background:#fff;
-  padding:16px 30px;font-family:var(--font-serif);font-size:20px;font-weight:400;
-  box-shadow:var(--shadow-card-sm);
-}
-
-/* ---------- what i do ---------- */
-.do-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:10px;}
-.do-card{
-  background:#fff;border:1.5px solid var(--color-charcoal);border-radius:26px;
-  padding:36px;box-shadow:var(--shadow-card);
-}
-.do-card .num{font-family:var(--font-serif);font-weight:300;font-size:36px;color:var(--color-red);display:block;margin-bottom:14px;}
-.do-card h3{font-family:var(--font-serif);font-weight:400;font-size:24px;margin:0 0 10px;}
-.do-card p{margin:0;color:var(--color-charcoal);font-size:15px;line-height:1.6;}
-.do-card.wide{grid-column:span 2;}
-
-/* ---------- ADHD section ---------- */
-.adhd-section{background:var(--color-charcoal);color:var(--color-warm-paper);border-radius:40px;margin:0 32px;padding:70px 48px;max-width:1136px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;}
-.adhd-section h2{color:var(--color-warm-paper);}
-.adhd-section .index-mark{color:var(--color-red);}
-.adhd-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;margin-top:34px;align-items:start;}
-.adhd-grid.single{grid-template-columns:1fr;max-width:760px;}
-.adhd-grid p{font-size:16px;line-height:1.65;color:#e4e4e0;margin:0 0 20px;}
-.adhd-grid p:last-child{margin-bottom:0;}
-.adhd-badge{border:1.5px solid var(--color-dusty-sky);border-radius:20px;padding:26px 28px;background:rgba(255,255,255,0.04);}
-.adhd-badge strong{display:block;font-family:var(--font-serif);font-size:20px;font-weight:400;margin-bottom:8px;color:#fff;}
-.adhd-badge p{color:#c9c9c4;font-size:14px;margin:0;}
-
-/* ---------- discovery box (photo split) ---------- */
-.discovery-split{padding:0;margin:80px 0;}
-.discovery-grid{display:grid;grid-template-columns:1fr 1fr;min-height:520px;border-top:1.5px solid #000;border-bottom:1.5px solid #000;}
-.discovery-image{overflow:hidden;background:#000;}
-.discovery-image img{width:100%;height:100%;object-fit:cover;display:block;}
-.discovery-content{background:var(--color-warm-paper);padding:70px 70px;display:flex;flex-direction:column;justify-content:center;}
-.discovery-content h3{font-family:var(--font-serif);font-weight:300;font-size:44px;margin:0 0 20px;}
-.discovery-content p{margin:0 0 24px;color:var(--color-charcoal);font-size:16px;line-height:1.65;max-width:440px;}
-.discovery-meta{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-charcoal);margin-bottom:28px;}
-.discovery-content .btn{align-self:flex-start;}
-
-/* ---------- final full-bleed CTA ---------- */
-.final-cta{position:relative;min-height:560px;display:flex;align-items:center;overflow:hidden;margin:0;padding:0;}
-.final-cta-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;}
-.final-cta-overlay{position:absolute;inset:0;background:linear-gradient(90deg, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.15) 75%);}
-.final-cta-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:0 32px;width:100%;}
-.final-cta-content h2{color:#fff;font-size:52px;max-width:620px;margin:0 0 22px;}
-.final-cta-content h2 .accent{color:var(--color-red);}
-.final-cta-content p{color:#f0f0ec;font-size:17px;max-width:420px;margin:0 0 30px;line-height:1.6;}
-
-/* ---------- footer ---------- */
-footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28px 0;}
-.foot-bottom{display:flex;justify-content:space-between;font-size:13px;color:#999;flex-wrap:wrap;gap:14px;align-items:center;}
-.foot-links-inline{display:flex;gap:24px;flex-wrap:wrap;}
-.foot-links-inline a{color:var(--color-warm-paper);text-decoration:none;font-size:13px;}
-.foot-links-inline a:hover{color:var(--color-coral-link);}
-
-/* ---------- how i work ---------- */
-.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:10px;}
-.how-card{
-  background:#fff;border-radius:22px;padding:32px 26px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid #ececea;
-}
-.how-title{font-family:var(--font-serif);font-size:20px;font-weight:400;margin-bottom:14px;color:#000;}
-.how-title .how-num{color:var(--color-red);font-weight:600;font-family:var(--font-sans);font-size:16px;}
-.how-title em{font-style:italic;font-weight:400;}
-.how-card p{margin:0;color:var(--color-charcoal);font-size:14px;line-height:1.6;}
-
-/* ---------- pricing ---------- */
-.pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:16px;}
-.price-card{
-  background:#fff;border:1.5px solid #000;border-radius:26px;padding:36px 30px;
-  box-shadow:var(--shadow-card);display:flex;flex-direction:column;position:relative;
-}
-.price-card .tier{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-charcoal);margin-bottom:8px;}
-.price-card h3{font-family:var(--font-serif);font-weight:400;font-size:26px;margin:0 0 4px;}
-.price-card .price{font-family:var(--font-serif);font-size:38px;font-weight:300;margin:14px 0 2px;}
-.price-card .price span{font-size:14px;font-family:var(--font-sans);color:var(--color-charcoal);}
-.price-card .hours{font-size:13px;color:var(--color-charcoal);margin-bottom:20px;}
-.price-card ul{list-style:none;margin:0 0 24px;padding:0;flex:1;}
-.price-card li{font-size:14px;color:var(--color-charcoal);padding:8px 0;border-top:1px solid #ececea;line-height:1.5;}
-.price-card li:first-child{border-top:none;}
-.price-card .fit{font-size:13px;font-style:italic;color:var(--color-charcoal);margin-bottom:20px;}
-.price-card .btn{width:100%;}
-.custom-note{margin-top:30px;text-align:center;font-size:15px;color:var(--color-charcoal);}
-.custom-note b{color:#000;}
-
-/* ---------- reviews ---------- */
-.reviews-head{justify-content:space-between;width:100%;}
-.carousel-nav{display:flex;gap:10px;margin-left:auto;}
-.carousel-btn{
-  width:44px;height:44px;border-radius:50%;border:1.5px solid #000;background:#fff;
-  font-family:var(--font-sans);font-size:16px;cursor:pointer;box-shadow:var(--shadow-btn);
-  display:flex;align-items:center;justify-content:center;transition:transform .15s ease;
-}
-.carousel-btn:hover{transform:translate(2px,-2px);box-shadow:2px -2px 0 0 #333;}
-.review-carousel{
-  display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;
-  /* overflow-x:auto also makes overflow-y auto, so the up-right card shadow
-     needs room at the top and right or it gets clipped by the scroll box */
-  margin-top:8px;padding:8px 8px 0 0;scrollbar-width:none;
-}
-.review-carousel::-webkit-scrollbar{display:none;}
-.review-carousel .review-card{
-  scroll-snap-align:start;flex:0 0 calc(33.333% - 16px);min-width:280px;
-}
-.review-card{
-  background:#fff;border:1.5px solid var(--color-charcoal);border-radius:26px;padding:34px;
-  box-shadow:var(--shadow-card);display:flex;flex-direction:column;justify-content:space-between;
-}
-.review-card p{font-size:15px;line-height:1.65;color:var(--color-charcoal);margin:0 0 20px;}
-.review-card .quote-mark{font-family:var(--font-serif);font-size:44px;color:var(--color-red);line-height:1;margin-bottom:6px;display:block;}
-.review-card .attribution{font-size:13px;font-weight:600;color:#000;}
-
-/* ---------- about ---------- */
-.about-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:center;}
-.about-grid img{border-radius:30px;border:1.5px solid #000;box-shadow:var(--shadow-card);}
-.about-text p{font-size:16px;line-height:1.7;color:var(--color-charcoal);margin:0 0 20px;}
-.about-text p:first-child{font-family:var(--font-serif);font-size:24px;font-style:italic;color:#000;line-height:1.4;}
-.about-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-.fact-chip{border:1.5px solid #000;border-radius:3000px;padding:8px 18px;font-size:13px;font-weight:600;background:#fff;box-shadow:2px -2px 0 0 #333;}
-
-/* ---------- responsive ---------- */
-@media (max-width: 900px){
-  nav.links{display:none;}
-  .burger{display:flex;}
-  nav.links.open{
-    display:flex;
-    flex-direction:column;
-    position:absolute;
-    top:100%;
-    left:0;
-    right:0;
-    background:var(--color-warm-paper);
-    border-bottom:1.5px solid #000;
-    padding:20px 32px 28px;
-    gap:18px;
-    box-shadow:0 8px 0 0 rgba(51,51,51,0.15);
-  }
-  nav.links.open a{font-size:16px;padding:4px 0;}
-  .hero h1{font-size:42px;}
-  /* On phones the 110px portrait sat inline in a 56px line box, punching a
-     gap between the heading lines. Put it on its own row, pinned right. */
-  .hero-greeting{display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:12px;}
-  .greet-text{flex:1 1 auto;}
-  .hero h1 br{display:none;}
-  .hero-portrait{margin:0;flex:0 0 auto;}
-  h2{font-size:32px;}
-  .do-grid{grid-template-columns:1fr;}
-  .how-grid{grid-template-columns:1fr;}
-  .do-card.wide{grid-column:span 1;}
-  .adhd-grid{grid-template-columns:1fr;}
-  .pricing-grid{grid-template-columns:1fr;}
-  .review-carousel .review-card{flex:0 0 88%;}
-  .about-grid{grid-template-columns:1fr;}
-  .about-text p:first-child{font-size:20px;}
-  footer .wrap{flex-direction:column;}
-  .adhd-section{margin:0 16px;padding:40px 24px;}
-  .final-cta{min-height:460px;}
-  .final-cta-content h2{font-size:34px;}
-  .wrap{padding:0 20px;}
-}
-@media (max-width: 640px){
-  .discovery-grid{grid-template-columns:1fr;min-height:auto;}
-  .discovery-image{height:320px;}
-  .discovery-content{padding:44px 24px;}
-  .discovery-content h3{font-size:32px;}
-}
-</style>
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
 
 <header>
   <div class="nav-inner">
-    <div class="nav-logo"><img src="images/logo.png" alt="Maria Dopheide"></div>
+    <div class="nav-logo"><img src="assets/images/logo.png" alt="Maria Dopheide"></div>
     <nav class="links">
       <a href="#who">Who I Work With</a>
       <a href="#what">What I Do</a>
@@ -284,7 +33,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
   <section class="hero">
     <div class="wrap">
       <div class="eyebrow">Operations Partner &amp; Consultant for Founders</div>
-      <h1><span class="hero-greeting"><span class="greet-text">Hi, <em class="accent">I'm Maria</em></span> <img class="hero-portrait" src="images/photo3.jpg" alt="Maria Dopheide"></span><br>I help founders build the <em class="accent">systems</em> that hold, so <em class="accent">growth</em> doesn't outrun the operations behind it.</h1>
+      <h1><span class="hero-greeting"><span class="greet-text">Hi, <em class="accent">I'm Maria</em></span> <img class="hero-portrait" src="assets/images/hero-portrait.jpg" alt="Maria Dopheide"></span><br>I help founders build the <em class="accent">systems</em> that hold, so <em class="accent">growth</em> doesn't outrun the operations behind it.</h1>
       <p class="hero-sub">A steady operational partner for founders and the operators around them, with a specialism in ADHD-founder environments.</p>
       <div class="hero-cta">
         <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Book a Free Discovery Call ↗</a>
@@ -361,7 +110,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
   <section id="contact" class="discovery-split">
     <div class="discovery-grid">
       <div class="discovery-image">
-        <img src="images/photo4.jpg" alt="Maria Dopheide working">
+        <img src="assets/images/discovery-call.jpg" alt="Maria Dopheide working">
       </div>
       <div class="discovery-content">
         <h3>Interested? Let's talk.</h3>
@@ -493,7 +242,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
     <div class="wrap">
       <div class="section-head"><span class="index-mark">07</span><h2>About Me</h2></div>
       <div class="about-grid">
-        <img src="images/about-collage.jpg" alt="Maria Dopheide">
+        <img src="assets/images/about-collage.jpg" alt="Maria Dopheide">
         <div class="about-text">
           <p>Most founders I've worked with didn't struggle with vision. They struggled with everything that comes after.</p>
           <p>Too many ideas at once, too many moving parts, and a team trying to keep up without quite knowing how. The gap between where a founder wants to go and what the business can actually execute on, that's where things break down.</p>
@@ -509,7 +258,7 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
 
   <!-- FINAL CTA -->
   <section class="final-cta">
-    <img class="final-cta-img" src="images/photo9.jpg" alt="Maria Dopheide">
+    <img class="final-cta-img" src="assets/images/final-cta.jpg" alt="Maria Dopheide">
     <div class="final-cta-overlay"></div>
     <div class="final-cta-content">
       <h2>Ready to build the <em class="accent">systems</em> that hold?</h2>
@@ -529,31 +278,6 @@ footer{background:var(--color-charcoal);color:var(--color-warm-paper);padding:28
   </div>
 </footer>
 
-<script>
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', function(e){
-    const id = this.getAttribute('href');
-    if(id.length>1){
-      const el = document.querySelector(id);
-      if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
-    }
-    document.querySelector('.links').classList.remove('open');
-  });
-});
-
-const reviewCarousel = document.getElementById('reviewCarousel');
-if(reviewCarousel){
-  const scrollByCard = () => {
-    const card = reviewCarousel.querySelector('.review-card');
-    return card ? card.getBoundingClientRect().width + 24 : 300;
-  };
-  document.getElementById('reviewNext').addEventListener('click', () => {
-    reviewCarousel.scrollBy({left: scrollByCard(), behavior: 'smooth'});
-  });
-  document.getElementById('reviewPrev').addEventListener('click', () => {
-    reviewCarousel.scrollBy({left: -scrollByCard(), behavior: 'smooth'});
-  });
-}
-</script>
+<script src="assets/js/main.js"></script>
 </body>
 </html>
