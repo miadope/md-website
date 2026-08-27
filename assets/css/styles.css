@@ -99,6 +99,12 @@ h2 em{font-style:italic;font-weight:400;}
   background:var(--color-card);border:1px solid var(--color-hairline);border-radius:24px;
   padding:32px;box-shadow:var(--shadow-soft);
 }
+/* ВРЕМЕННО: три варианта цвета линии для выбора. После выбора — убрать
+   эти три правила и поставить выбранный цвет в --color-hairline. */
+.who-card:nth-child(1){border-color:#E9DFC9;}  /* A — Песок  */
+.who-card:nth-child(2){border-color:#E6E1D5;}  /* B — Лён    */
+.who-card:nth-child(3){border-color:#F2ECDE;}  /* C — Дымка  */
+
 .who-card h3{font-family:var(--font-serif);font-weight:400;font-size:24px;margin:0 0 12px;}
 .who-card p{margin:0;color:var(--color-charcoal);font-size:16px;line-height:1.6;}
 
