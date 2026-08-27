@@ -103,11 +103,11 @@ h2 em{font-style:italic;font-weight:400;}
 /* ---------- what i do ---------- */
 /* Bento: шесть колонок, ячейки разной ширины. Широкие достаются карточкам
    с длинным текстом, узкие — с коротким, чтобы строки везде читались. */
-.do-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:26px;margin-top:10px;}
-.do-card:nth-child(1){grid-column:span 2;}
-.do-card:nth-child(2){grid-column:span 4;}
-.do-card:nth-child(3){grid-column:span 4;}
-.do-card:nth-child(4){grid-column:span 2;}
+.do-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:26px;margin-top:10px;}
+.do-card:nth-child(1){grid-column:span 5;}
+.do-card:nth-child(2){grid-column:span 7;}
+.do-card:nth-child(3){grid-column:span 7;}
+.do-card:nth-child(4){grid-column:span 5;}
 .do-card{
   background:var(--color-card);border:1.5px solid var(--color-ink-black);border-radius:26px;
   padding:36px;box-shadow:var(--shadow-card);
@@ -116,7 +116,7 @@ h2 em{font-style:italic;font-weight:400;}
 .do-card h3{font-family:var(--font-serif);font-weight:400;font-size:24px;margin:0 0 10px;}
 .do-card p{margin:0;color:var(--color-charcoal);font-size:15px;line-height:1.6;}
 .do-card.wide{
-  grid-column:span 6;
+  grid-column:span 12;
   display:flex;align-items:center;gap:44px;
 }
 .do-card.wide .num{margin-bottom:0;font-size:52px;}
