@@ -101,7 +101,13 @@ h2 em{font-style:italic;font-weight:400;}
 .who-card p{margin:0;color:var(--color-charcoal);font-size:15px;line-height:1.6;}
 
 /* ---------- what i do ---------- */
-.do-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:10px;}
+/* Bento: шесть колонок, ячейки разной ширины. Широкие достаются карточкам
+   с длинным текстом, узкие — с коротким, чтобы строки везде читались. */
+.do-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:26px;margin-top:10px;}
+.do-card:nth-child(1){grid-column:span 2;}
+.do-card:nth-child(2){grid-column:span 4;}
+.do-card:nth-child(3){grid-column:span 4;}
+.do-card:nth-child(4){grid-column:span 2;}
 .do-card{
   background:var(--color-card);border:1.5px solid var(--color-ink-black);border-radius:26px;
   padding:36px;box-shadow:var(--shadow-card);
@@ -109,7 +115,13 @@ h2 em{font-style:italic;font-weight:400;}
 .do-card .num{font-family:var(--font-serif);font-weight:300;font-size:36px;color:var(--color-red);display:block;margin-bottom:14px;}
 .do-card h3{font-family:var(--font-serif);font-weight:400;font-size:24px;margin:0 0 10px;}
 .do-card p{margin:0;color:var(--color-charcoal);font-size:15px;line-height:1.6;}
-.do-card.wide{grid-column:span 2;}
+.do-card.wide{
+  grid-column:span 6;
+  display:flex;align-items:center;gap:44px;
+}
+.do-card.wide .num{margin-bottom:0;font-size:52px;}
+.do-card.wide h3{font-size:30px;margin:0;flex:0 0 auto;}
+.do-card.wide p{max-width:520px;}
 
 /* ---------- ADHD section ---------- */
 .adhd-section{background:var(--color-ink-black);color:var(--color-warm-paper);border-radius:40px;margin:0 32px;padding:70px 48px;max-width:1136px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;}
@@ -242,8 +254,11 @@ footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:2
   h2{font-size:32px;}
   .who-grid{grid-template-columns:1fr;}
   .do-grid{grid-template-columns:1fr;}
+  .do-card:nth-child(n){grid-column:auto;}
   .how-grid{grid-template-columns:1fr;}
-  .do-card.wide{grid-column:span 1;}
+  .do-card.wide{grid-column:auto;display:block;}
+  .do-card.wide .num{margin-bottom:14px;font-size:36px;}
+  .do-card.wide h3{font-size:24px;margin:0 0 10px;}
   .adhd-grid{grid-template-columns:1fr;}
   .pricing-grid{grid-template-columns:1fr;}
   .review-carousel .review-card{flex:0 0 88%;}
