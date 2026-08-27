@@ -3,6 +3,7 @@
   --color-ink-black:#000000;
   --color-charcoal:#333333;
   --color-pure-white:#ffffff;
+  --color-card:#FDFBF6;
   --color-dusty-sky:#81aed9;
   --color-cobalt-wash:#55a1ea;
   --color-coral-link:#ff8562;
@@ -41,13 +42,13 @@ header{position:sticky;top:0;z-index:50;background:rgba(245,245,243,0.92);backdr
 nav.links{display:flex;gap:28px;list-style:none;margin:0;padding:0;}
 nav.links a{color:var(--color-ink-black);text-decoration:none;font-size:14px;font-weight:500;letter-spacing:-0.01em;}
 nav.links a:hover{color:var(--color-coral-link);}
-.burger{display:none;width:40px;height:40px;border-radius:50%;border:1.5px solid #000;align-items:center;justify-content:center;background:#fff;box-shadow:var(--shadow-btn);cursor:pointer;flex-direction:column;gap:4px;}
+.burger{display:none;width:40px;height:40px;border-radius:50%;border:1.5px solid #000;align-items:center;justify-content:center;background:var(--color-card);box-shadow:var(--shadow-btn);cursor:pointer;flex-direction:column;gap:4px;}
 .burger span{display:block;width:16px;height:1.5px;background:#000;}
 
 /* ---------- buttons ---------- */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  border-radius:3000px;border:1.5px solid #000;background:#fff;
+  border-radius:3000px;border:1.5px solid #000;background:var(--color-card);
   padding:16px 34px;font-family:var(--font-sans);font-weight:600;font-size:14px;
   letter-spacing:0.02em;text-transform:uppercase;color:#000;text-decoration:none;
   box-shadow:var(--shadow-btn);transition:transform .15s ease;
@@ -76,7 +77,13 @@ nav.links a:hover{color:var(--color-coral-link);}
 /* ---------- section basics ---------- */
 section{padding:80px 0;position:relative;}
 .section-head{display:flex;align-items:baseline;gap:16px;margin-bottom:44px;}
-.index-mark{font-family:var(--font-serif);font-weight:300;font-size:22px;color:var(--color-red);}
+.index-mark{
+  font-family:var(--font-serif);font-weight:400;font-size:24px;line-height:1;
+  color:var(--color-warm-paper);background:var(--color-red);
+  width:52px;height:52px;border-radius:50%;
+  display:inline-flex;align-items:center;justify-content:center;
+  flex:0 0 auto;align-self:center;
+}
 h2{font-family:var(--font-serif);font-weight:300;font-size:46px;line-height:1.05;margin:0;}
 h2 em{font-style:italic;font-weight:400;}
 .section-intro{max-width:640px;font-size:17px;color:var(--color-charcoal);margin-bottom:0;}
@@ -84,7 +91,7 @@ h2 em{font-style:italic;font-weight:400;}
 /* ---------- who i work with ---------- */
 .pills-row{display:flex;flex-wrap:wrap;gap:16px;margin-top:20px;}
 .tag-pill{
-  border-radius:3000px;border:1.5px solid var(--color-ink-black);background:#fff;
+  border-radius:3000px;border:1.5px solid var(--color-ink-black);background:var(--color-card);
   padding:16px 30px;font-family:var(--font-serif);font-size:20px;font-weight:400;
   box-shadow:var(--shadow-card-sm);
 }
@@ -92,7 +99,7 @@ h2 em{font-style:italic;font-weight:400;}
 /* ---------- what i do ---------- */
 .do-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px;margin-top:10px;}
 .do-card{
-  background:#fff;border:1.5px solid var(--color-ink-black);border-radius:26px;
+  background:var(--color-card);border:1.5px solid var(--color-ink-black);border-radius:26px;
   padding:36px;box-shadow:var(--shadow-card);
 }
 .do-card .num{font-family:var(--font-serif);font-weight:300;font-size:36px;color:var(--color-red);display:block;margin-bottom:14px;}
@@ -103,7 +110,6 @@ h2 em{font-style:italic;font-weight:400;}
 /* ---------- ADHD section ---------- */
 .adhd-section{background:var(--color-ink-black);color:var(--color-warm-paper);border-radius:40px;margin:0 32px;padding:70px 48px;max-width:1136px;margin-left:auto;margin-right:auto;position:relative;overflow:hidden;}
 .adhd-section h2{color:var(--color-warm-paper);}
-.adhd-section .index-mark{color:var(--color-red);}
 .adhd-grid{display:grid;grid-template-columns:1.1fr 0.9fr;gap:50px;margin-top:34px;align-items:start;}
 .adhd-grid.single{grid-template-columns:1fr;max-width:760px;}
 .adhd-grid p{font-size:16px;line-height:1.65;color:#e4e4e0;margin:0 0 20px;}
@@ -133,16 +139,16 @@ h2 em{font-style:italic;font-weight:400;}
 .final-cta-content p{color:#f0f0ec;font-size:17px;max-width:420px;margin:0 0 30px;line-height:1.6;}
 
 /* ---------- footer ---------- */
-footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:28px 0;}
-.foot-bottom{display:flex;justify-content:space-between;font-size:13px;color:#999;flex-wrap:wrap;gap:14px;align-items:center;}
+footer{background:var(--color-warm-paper);color:var(--color-charcoal);padding:28px 0;border-top:1px solid #e6ddc9;}
+.foot-bottom{display:flex;justify-content:space-between;font-size:13px;color:var(--color-charcoal);flex-wrap:wrap;gap:14px;align-items:center;}
 .foot-links-inline{display:flex;gap:24px;flex-wrap:wrap;}
-.foot-links-inline a{color:var(--color-warm-paper);text-decoration:none;font-size:13px;}
+.foot-links-inline a{color:var(--color-ink-black);text-decoration:none;font-size:13px;}
 .foot-links-inline a:hover{color:var(--color-coral-link);}
 
 /* ---------- how i work ---------- */
 .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:10px;}
 .how-card{
-  background:#fff;border-radius:22px;padding:32px 26px;
+  background:var(--color-card);border-radius:22px;padding:32px 26px;
   box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid #ececea;
 }
 .how-title{font-family:var(--font-serif);font-size:20px;font-weight:400;margin-bottom:14px;color:#000;}
@@ -153,7 +159,7 @@ footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:2
 /* ---------- pricing ---------- */
 .pricing-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:16px;}
 .price-card{
-  background:#fff;border:1.5px solid #000;border-radius:26px;padding:36px 30px;
+  background:var(--color-card);border:1.5px solid #000;border-radius:26px;padding:36px 30px;
   box-shadow:var(--shadow-card);display:flex;flex-direction:column;position:relative;
 }
 .price-card .tier{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-charcoal);margin-bottom:8px;}
@@ -173,7 +179,7 @@ footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:2
 .reviews-head{justify-content:space-between;width:100%;}
 .carousel-nav{display:flex;gap:10px;margin-left:auto;}
 .carousel-btn{
-  width:44px;height:44px;border-radius:50%;border:1.5px solid #000;background:#fff;
+  width:44px;height:44px;border-radius:50%;border:1.5px solid #000;background:var(--color-card);
   font-family:var(--font-sans);font-size:16px;cursor:pointer;box-shadow:var(--shadow-btn);
   display:flex;align-items:center;justify-content:center;transition:transform .15s ease;
 }
@@ -189,7 +195,7 @@ footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:2
   scroll-snap-align:start;flex:0 0 calc(33.333% - 16px);min-width:280px;
 }
 .review-card{
-  background:#fff;border:1.5px solid var(--color-ink-black);border-radius:26px;padding:34px;
+  background:var(--color-card);border:1.5px solid var(--color-ink-black);border-radius:26px;padding:34px;
   box-shadow:var(--shadow-card);display:flex;flex-direction:column;justify-content:space-between;
 }
 .review-card p{font-size:15px;line-height:1.65;color:var(--color-charcoal);margin:0 0 20px;}
@@ -202,7 +208,7 @@ footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:2
 .about-text p{font-size:16px;line-height:1.7;color:var(--color-charcoal);margin:0 0 20px;}
 .about-text p:first-child{font-family:var(--font-serif);font-size:24px;font-style:italic;color:#000;line-height:1.4;}
 .about-facts{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
-.fact-chip{border:1.5px solid #000;border-radius:3000px;padding:8px 18px;font-size:13px;font-weight:600;background:#fff;box-shadow:2px -2px 0 0 #000;}
+.fact-chip{border:1.5px solid #000;border-radius:3000px;padding:8px 18px;font-size:13px;font-weight:600;background:var(--color-card);box-shadow:2px -2px 0 0 #000;}
 
 /* ---------- responsive ---------- */
 @media (max-width: 900px){
@@ -224,6 +230,8 @@ footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:2
   nav.links.open a{font-size:16px;padding:4px 0;}
   .hero h1{font-size:42px;}
   .hero{padding:36px 0 48px;}
+  .index-mark{width:44px;height:44px;}
+  .section-head{gap:12px;margin-bottom:32px;}
   .hero-portrait{width:88px;height:88px;}
   .hero-sub{margin-bottom:26px;}
   h2{font-size:32px;}
