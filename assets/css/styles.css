@@ -120,12 +120,12 @@ h2 em{font-style:italic;font-weight:400;}
 
 /* ---------- discovery box (photo split) ---------- */
 .discovery-split{padding:0;margin:80px 0;}
-.discovery-grid{display:grid;grid-template-columns:1fr 1fr;min-height:520px;}
+.discovery-grid{display:grid;grid-template-columns:40% 60%;min-height:520px;}
 .discovery-image{overflow:hidden;background:#000;}
 .discovery-image img{width:100%;height:100%;object-fit:cover;display:block;}
 .discovery-content{background:var(--color-red);padding:70px 70px;display:flex;flex-direction:column;justify-content:center;}
 .discovery-content h3{font-family:var(--font-serif);font-weight:300;font-size:44px;margin:0 0 20px;color:var(--color-warm-paper);}
-.discovery-content p{margin:0 0 24px;color:var(--color-warm-paper);font-size:16px;line-height:1.65;max-width:440px;}
+.discovery-content p{margin:0 0 24px;color:var(--color-warm-paper);font-size:16px;line-height:1.65;max-width:560px;}
 .discovery-meta{font-size:12px;text-transform:uppercase;letter-spacing:0.1em;color:var(--color-warm-paper);margin-bottom:28px;}
 .discovery-content .btn{align-self:flex-start;}
 .discovery-content .btn-solid{background:var(--color-card);color:var(--color-ink-black);border-color:var(--color-ink-black);}
