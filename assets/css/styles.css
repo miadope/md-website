@@ -13,6 +13,8 @@
   --shadow-card: 5px -5px 0px 0px #000000;
   --shadow-btn: 4px -4px 0px 0px #000000;
   --shadow-card-sm: 3px -3px 0px 0px #000000;
+  --shadow-soft: 0 10px 30px rgba(0,0,0,0.06);
+  --color-hairline:#ececea;
 }
 *{box-sizing:border-box;}
 html{scroll-behavior:smooth;}
@@ -94,8 +96,8 @@ h2 em{font-style:italic;font-weight:400;}
 /* ---------- who i work with ---------- */
 .who-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
 .who-card{
-  background:var(--color-card);border:1.5px solid var(--color-ink-black);border-radius:24px;
-  padding:32px;box-shadow:var(--shadow-card);
+  background:var(--color-card);border:1px solid var(--color-hairline);border-radius:24px;
+  padding:32px;box-shadow:var(--shadow-soft);
 }
 .who-card h3{font-family:var(--font-serif);font-weight:400;font-size:24px;margin:0 0 12px;}
 .who-card p{margin:0;color:var(--color-charcoal);font-size:16px;line-height:1.6;}
@@ -163,7 +165,7 @@ footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:2
 .how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:12px;}
 .how-card{
   background:var(--color-card);border-radius:24px;padding:32px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid #ececea;
+  box-shadow:var(--shadow-soft);border:1px solid var(--color-hairline);
 }
 .how-title{font-family:var(--font-serif);font-size:24px;font-weight:400;margin-bottom:16px;color:#000;}
 .how-title .how-num{color:var(--color-red);font-weight:600;font-family:var(--font-sans);font-size:16px;}
@@ -182,7 +184,7 @@ footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:2
 .price-card .price span{font-size:14px;font-family:var(--font-sans);color:var(--color-charcoal);}
 .price-card .hours{font-size:12px;color:var(--color-charcoal);margin-bottom:20px;}
 .price-card ul{list-style:none;margin:0 0 24px;padding:0;flex:1;}
-.price-card li{font-size:14px;color:var(--color-charcoal);padding:8px 0;border-top:1px solid #ececea;line-height:1.5;}
+.price-card li{font-size:14px;color:var(--color-charcoal);padding:8px 0;border-top:1px solid var(--color-hairline);line-height:1.5;}
 .price-card li:first-child{border-top:none;}
 .price-card .fit{font-size:12px;font-style:italic;color:var(--color-charcoal);margin-bottom:20px;}
 .price-card .btn{width:100%;}
@@ -209,8 +211,8 @@ footer{background:var(--color-ink-black);color:var(--color-warm-paper);padding:2
   scroll-snap-align:start;flex:0 0 calc(33.333% - 16px);min-width:280px;
 }
 .review-card{
-  background:var(--color-card);border:1.5px solid var(--color-ink-black);border-radius:24px;padding:32px;
-  box-shadow:var(--shadow-card);display:flex;flex-direction:column;justify-content:space-between;
+  background:var(--color-card);border:1px solid var(--color-hairline);border-radius:24px;padding:32px;
+  box-shadow:var(--shadow-soft);display:flex;flex-direction:column;justify-content:space-between;
 }
 .review-card p{font-size:16px;line-height:1.65;color:var(--color-charcoal);margin:0 0 20px;}
 .review-card .quote-mark{font-family:var(--font-serif);font-size:32px;color:var(--color-red);line-height:1;margin-bottom:8px;display:block;}
