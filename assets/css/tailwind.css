@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   Дизайн-система сайта. Всё, что мы выравнивали вручную, теперь
+   живёт здесь: Tailwind генерирует из этих токенов свои утилиты.
+   ───────────────────────────────────────────────────────────── */
+@theme {
+  /* базовая единица отступов: 4px, поэтому p-8 = 32px, gap-6 = 24px */
+  --spacing: 4px;
+
+  /* палитра */
+  --color-paper:      #F9F4E8;  /* фон страницы   */
+  --color-card:       #FDFBF6;  /* фон карточек   */
+  --color-ink:        #000000;  /* заголовки      */
+  --color-charcoal:   #333333;  /* основной текст */
+  --color-accent:     #FD3631;  /* красный        */
+  --color-hairline:   #E6E1D5;  /* тонкая линия   */
+  --color-coral-link: #FF8562;
+
+  /* шрифты */
+  --font-serif: 'Playfair Display', 'Times New Roman', serif;
+  --font-sans:  'Manrope', ui-sans-serif, system-ui, sans-serif;
+
+  /* шкала кеглей — восемь ступеней */
+  --text-xs:   12px;  /* подписи капслоком         */
+  --text-sm:   14px;  /* кнопки, ссылки, списки    */
+  --text-base: 16px;  /* основной текст            */
+  --text-lg:   18px;  /* вводные абзацы            */
+  --text-xl:   24px;  /* заголовки карточек        */
+  --text-2xl:  32px;  /* крупные акценты, цены     */
+  --text-3xl:  40px;  /* h1 на телефоне            */
+  --text-4xl:  46px;  /* h2                        */
+  --text-5xl:  64px;  /* h1                        */
+
+  /* тени */
+  --shadow-card: 5px -5px 0 0 #000000;
+  --shadow-btn:  4px -4px 0 0 #000000;
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+
+  /* брейкпоинт: до 900px — телефон, от 900px — десктоп (префикс nav:) */
+  --breakpoint-nav: 900px;
+
+  /* радиусы */
+  --radius-card:    24px;
+  --radius-section: 40px;
+}
+
+@layer base {
+  /* высота шапки: по ней же считается высота хиро */
+  :root { --header-h: 80px; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Компоненты. Кнопок на странице шесть, карточек больше пятнадцати —
+   для них класс читается лучше, чем повтор одного набора утилит.
+   ───────────────────────────────────────────────────────────── */
+@layer components {
+
+  .wrap { @apply relative mx-auto w-full max-w-[1200px] px-8; }
+
+  /* кнопки */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full
+           border-[1.5px] border-ink bg-card px-8 py-4 font-sans text-sm
+           font-semibold uppercase tracking-[0.02em] text-ink no-underline;
+    box-shadow: var(--shadow-btn);
+    transition: transform .15s ease;
+  }
+  .btn:hover { transform: translate(2px, -2px); box-shadow: 2px -2px 0 0 var(--color-ink); }
+  .btn-solid { @apply border-accent bg-accent text-white; }
+
+  /* карточки: жёсткая — офсетная тень и чёрная обводка */
+  .card-hard {
+    @apply rounded-card border-[1.5px] border-ink bg-card p-8;
+    box-shadow: var(--shadow-card);
+  }
+  /* мягкая — рассеянная тень и тонкая линия */
+  .card-soft {
+    @apply rounded-card border border-hairline bg-card p-8;
+    box-shadow: var(--shadow-soft);
+  }
+
+  /* номер секции в красном круге */
+  .index-mark {
+    @apply flex h-11 w-11 shrink-0 items-center justify-center self-center
+           rounded-full bg-accent font-serif text-xl leading-none text-paper
+           nav:h-13 nav:w-13;
+  }
+
+  /* шапка секции */
+  .section-head { @apply mb-8 flex items-baseline gap-3 nav:mb-11 nav:gap-4; }
+}
+
+/* Навигация. Видимость держим в этом же слое, иначе утилита hidden из слоя
+   utilities перебивает открытое состояние независимо от специфичности. */
+@layer components {
+  nav.links { @apply hidden nav:flex; }
+  nav.links a { @apply text-sm; }
+  nav.links.open {
+    @apply absolute top-full right-8 z-50 flex flex-col gap-4 rounded-card
+           bg-paper px-8 pt-5 pb-7;
+    box-shadow: 0 8px 0 0 rgba(0, 0, 0, 0.15);
+  }
+  nav.links.open a { @apply text-base; padding: 4px 0; }
+}

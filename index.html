@@ -11,107 +11,128 @@
 </head>
 <body>
 
-<header>
-  <div class="nav-inner">
-    <div class="nav-logo"><img src="assets/images/logo.png" alt="Maria Dopheide"></div>
-    <nav class="links">
-      <a href="#who">Who I Work With</a>
-      <a href="#what">What I Do</a>
-      <a href="#adhd">ADHD-founder environments</a>
-      <a href="#how">How I Work</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#reviews">Reviews</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+<header class="sticky top-0 z-50 bg-[rgba(249,244,232,0.92)] backdrop-blur-[6px]">
+  <!-- justify-between leaves equal gaps logo→menu and menu→button, so the
+       menu reads as centred even though the logo is much narrower than the
+       button. Below 900px the menu collapses into the burger. -->
+  <div class="mx-auto flex h-(--header-h) max-w-[1200px] items-center justify-between gap-4 px-8">
+    <div class="flex items-center gap-3 font-serif text-xl font-medium">
+      <img src="assets/images/logo.png" alt="Maria Dopheide" class="h-[34px] w-auto">
+    </div>
+    <nav class="links gap-6">
+      <a href="#what"    class="font-medium tracking-[-0.01em] text-ink no-underline hover:text-coral-link">What I Do</a>
+      <a href="#adhd"    class="font-medium tracking-[-0.01em] text-ink no-underline hover:text-coral-link">ADHD founders</a>
+      <a href="#how"     class="font-medium tracking-[-0.01em] text-ink no-underline hover:text-coral-link">How I Work</a>
+      <a href="#pricing" class="font-medium tracking-[-0.01em] text-ink no-underline hover:text-coral-link">Pricing</a>
+      <a href="#about"   class="font-medium tracking-[-0.01em] text-ink no-underline hover:text-coral-link">About</a>
     </nav>
-    <div class="burger" onclick="document.querySelector('.links').classList.toggle('open')"><span></span><span></span><span></span></div>
+    <div class="flex items-center gap-3">
+      <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer"
+         class="btn btn-solid h-10 px-4 py-0 text-xs nav:px-5 nav:text-sm">Book a call ↗</a>
+      <button type="button" aria-label="Menu"
+              class="burger flex h-10 w-10 cursor-pointer flex-col items-center justify-center gap-1 rounded-full border-[1.5px] border-ink bg-card shadow-[var(--shadow-btn)] nav:hidden"
+              onclick="document.querySelector('.links').classList.toggle('open')">
+        <span class="block h-[1.5px] w-4 bg-ink"></span>
+        <span class="block h-[1.5px] w-4 bg-ink"></span>
+        <span class="block h-[1.5px] w-4 bg-ink"></span>
+      </button>
+    </div>
   </div>
 </header>
 
 <main>
   <!-- HERO -->
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-intro">
-        <div class="eyebrow">Hi, I'm Maria</div>
-        <img class="hero-portrait" src="assets/images/hero-portrait.jpg" alt="Maria Dopheide">
-      </div>
-      <h1><em class="accent">Operations</em> partner for founders who move fast</h1>
-      <p class="hero-sub">I help founders build the systems that hold, so growth doesn't outrun the operations behind it — with a specialism in ADHD-founder environments.</p>
-      <div class="hero-cta">
-        <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Book a Free Discovery Call ↗</a>
-        <a href="#what" class="btn">See What I Do</a>
+  <!-- Fills the screen below the sticky header so the next section never
+       peeks in; content is centred. Header and hero both read --header-h
+       (tailwind.css), so they cannot drift apart. -->
+  <section class="relative flex min-h-[calc(100svh-var(--header-h))] items-center py-12 nav:py-16">
+    <!-- Phone: one column, no photo.
+         Desktop: text on the left, centred against the photo on the right
+         (the two 1fr rows absorb any extra height equally). -->
+    <div class="wrap grid grid-cols-1 gap-y-6 nav:grid-cols-[1fr_auto] nav:grid-rows-[1fr_auto_auto_1fr] nav:gap-x-16 nav:gap-y-0">
+      <div class="font-sans text-xs uppercase tracking-[0.14em] text-charcoal nav:col-start-1 nav:row-start-2 nav:mb-6">Maria Dopheide · Fractional COO</div>
+      <img src="assets/images/hero-portrait.jpg" alt="Maria Dopheide"
+           class="hidden h-64 w-64 rounded-full border-[1.5px] border-ink object-cover nav:col-start-2 nav:row-span-4 nav:row-start-1 nav:block nav:self-center xl:h-80 xl:w-80">
+      <div class="nav:col-start-1 nav:row-start-3">
+        <h1 class="mb-6 font-serif text-3xl font-light leading-[1.08] text-balance nav:text-5xl">
+          <em class="font-normal italic text-accent">Operations</em> partner for founders who <em class="font-normal italic text-accent">move</em> fast
+        </h1>
+        <p class="mb-6 max-w-[600px] text-lg leading-[1.55] text-charcoal nav:mb-8">I help founders build the systems that hold, so growth doesn't outrun the operations behind it — with a specialism in ADHD-founder environments.</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Book a Free Discovery Call ↗</a>
+          <a href="#what" class="btn">See What I Do</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- WHO I WORK WITH -->
-  <section id="who">
+  <section id="who" class="relative py-20">
     <div class="wrap">
-      <div class="section-head"><span class="index-mark">01</span><h2>Who I Work With</h2></div>
-      <div class="who-grid">
-        <div class="who-card">
-          <h3>Solo-founders</h3>
-          <p>Everything runs through you, and that has quietly become the ceiling on growth.</p>
+      <div class="section-head"><span class="index-mark">01</span><h2 class="m-0 font-serif text-2xl font-light leading-[1.05] nav:text-4xl">Who I Work With</h2></div>
+      <div class="grid grid-cols-1 gap-6 nav:grid-cols-3">
+        <div class="card-soft">
+          <h3 class="mb-3 font-serif text-xl font-normal">Solo-founders</h3>
+          <p class="m-0 text-base leading-[1.6] text-charcoal">Everything runs through you, and that has quietly become the ceiling on growth.</p>
         </div>
-        <div class="who-card">
-          <h3>Early-stage founders</h3>
-          <p>Growing faster than your processes. What worked at five people breaks at fifteen.</p>
+        <div class="card-soft">
+          <h3 class="mb-3 font-serif text-xl font-normal">Early-stage founders</h3>
+          <p class="m-0 text-base leading-[1.6] text-charcoal">Growing faster than your processes. What worked at five people breaks at fifteen.</p>
         </div>
-        <div class="who-card">
-          <h3>Co-founders</h3>
-          <p>Sharing the load without a clear line on who actually owns what.</p>
+        <div class="card-soft">
+          <h3 class="mb-3 font-serif text-xl font-normal">Co-founders</h3>
+          <p class="m-0 text-base leading-[1.6] text-charcoal">Sharing the load without a clear line on who actually owns what.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- WHAT I DO -->
-  <section id="what">
+  <section id="what" class="relative py-20">
     <div class="wrap">
-      <div class="section-head"><span class="index-mark">02</span><h2>What I Do</h2></div>
-      <p class="section-intro">I work in two ways: consulting with you on strategy and systems, and working directly alongside you to build and implement.</p>
-      <div class="do-grid">
-        <div class="do-card">
-          <span class="num">01</span>
-          <h3>Process &amp; Systems</h3>
-          <p>Mapping how the business actually runs. Building processes that hold. Setting up the operational layer so nothing depends on one person.</p>
+      <div class="section-head !mb-5"><span class="index-mark">02</span><h2 class="m-0 font-serif text-2xl font-light leading-[1.05] nav:text-4xl">What I Do</h2></div>
+      <p class="mb-11 max-w-[640px] text-lg text-charcoal">I work in two ways: consulting with you on strategy and systems, and working directly alongside you to build and implement.</p>
+      <div class="mt-3 grid grid-cols-1 gap-6 nav:grid-cols-12">
+        <div class="card-hard nav:col-span-5">
+          <span class="mb-4 block font-serif text-2xl font-light text-accent">01</span>
+          <h3 class="mb-3 font-serif text-xl font-normal">Process &amp; Systems</h3>
+          <p class="m-0 text-base leading-[1.6] text-charcoal">Mapping how the business actually runs. Building processes that hold. Setting up the operational layer so nothing depends on one person.</p>
         </div>
-        <div class="do-card">
-          <span class="num">02</span>
-          <h3>Automations &amp; AI</h3>
-          <p>Bringing AI and automation into workflows in ways your team will actually use. Removing manual, repetitive work. This is part of all my work, not an add-on.</p>
+        <div class="card-hard nav:col-span-7">
+          <span class="mb-4 block font-serif text-2xl font-light text-accent">02</span>
+          <h3 class="mb-3 font-serif text-xl font-normal">Automations &amp; AI</h3>
+          <p class="m-0 text-base leading-[1.6] text-charcoal">Bringing AI and automation into workflows in ways your team will actually use. Removing manual, repetitive work. This is part of all my work, not an add-on.</p>
         </div>
-        <div class="do-card">
-          <span class="num">03</span>
-          <h3>People &amp; Delegation</h3>
-          <p>Frameworks to get work off the founder's plate and onto the right person. Hiring and training support. Documentation so the business doesn't break when someone's away.</p>
+        <div class="card-hard nav:col-span-7">
+          <span class="mb-4 block font-serif text-2xl font-light text-accent">03</span>
+          <h3 class="mb-3 font-serif text-xl font-normal">People &amp; Delegation</h3>
+          <p class="m-0 text-base leading-[1.6] text-charcoal">Frameworks to get work off the founder's plate and onto the right person. Hiring and training support. Documentation so the business doesn't break when someone's away.</p>
         </div>
-        <div class="do-card">
-          <span class="num">04</span>
-          <h3>Project &amp; Technical Setup</h3>
-          <p>Managing workflows, technical integrations, and the day-to-day operational logistics that most consultants skip over.</p>
+        <div class="card-hard nav:col-span-5">
+          <span class="mb-4 block font-serif text-2xl font-light text-accent">04</span>
+          <h3 class="mb-3 font-serif text-xl font-normal">Project &amp; Technical Setup</h3>
+          <p class="m-0 text-base leading-[1.6] text-charcoal">Managing workflows, technical integrations, and the day-to-day operational logistics that most consultants skip over.</p>
         </div>
-        <div class="do-card wide">
-          <span class="num">05</span>
-          <h3>Fractional COO</h3>
-          <p>Stepping in as a hands-on senior operator, doing the work alongside your team.</p>
+        <div class="card-hard nav:col-span-12 nav:flex nav:items-center nav:gap-11">
+          <span class="mb-4 block font-serif text-2xl font-light text-accent nav:mb-0">05</span>
+          <h3 class="mb-3 font-serif text-xl font-normal nav:m-0 nav:shrink-0">Fractional COO</h3>
+          <p class="m-0 max-w-[520px] text-base leading-[1.6] text-charcoal">Stepping in as a hands-on senior operator, doing the work alongside your team.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ADHD -->
-  <section id="adhd">
+  <section id="adhd" class="relative py-20">
     <div class="wrap">
-      <div class="adhd-section">
-        <div class="section-head"><span class="index-mark">03</span><h2>Specialized in <em>ADHD-founder</em> environments</h2></div>
-        <div class="adhd-grid single">
+      <div class="relative mx-auto max-w-[1136px] overflow-hidden rounded-section bg-ink px-6 py-10 text-paper nav:px-12 nav:py-18">
+        <div class="section-head"><span class="index-mark">03</span><h2 class="m-0 font-serif text-2xl font-light leading-[1.05] text-paper nav:text-4xl">Specialized in <em class="font-normal italic">ADHD-founder</em> environments</h2></div>
+        <div class="grid max-w-[760px] grid-cols-1">
           <div>
-            <p>I've spent years inside founder-led businesses where the founder's brain moves faster than the systems around them can keep up.</p>
-            <p>I'm not an ADHD coach, and I don't have ADHD myself, but I understand how an ADHD brain works, and I know how to build with it, not against it.</p>
-            <p>I train teams on how to operate in a fast-moving environment and create systems tailored to how the specific business actually runs, not a generic playbook that doesn't fit.</p>
-            <p>I see the human brain and psychology as a critical part of how a business runs. Understanding how the founder's brain works, and how their team's brains work, matters just as much as the systems themselves. I don't just look at tools, systems, and processes. I look at the full picture, and the human factor is never something I lose sight of.</p>
+            <p class="mb-5 text-base leading-[1.65] text-[#e4e4e0]">I've spent years inside founder-led businesses where the founder's brain moves faster than the systems around them can keep up.</p>
+            <p class="mb-5 text-base leading-[1.65] text-[#e4e4e0]">I'm not an ADHD coach, and I don't have ADHD myself, but I understand how an ADHD brain works, and I know how to build with it, not against it.</p>
+            <p class="mb-5 text-base leading-[1.65] text-[#e4e4e0]">I train teams on how to operate in a fast-moving environment and create systems tailored to how the specific business actually runs, not a generic playbook that doesn't fit.</p>
+            <p class="m-0 text-base leading-[1.65] text-[#e4e4e0]">I see the human brain and psychology as a critical part of how a business runs. Understanding how the founder's brain works, and how their team's brains work, matters just as much as the systems themselves. I don't just look at tools, systems, and processes. I look at the full picture, and the human factor is never something I lose sight of.</p>
           </div>
         </div>
       </div>
@@ -119,173 +140,183 @@
   </section>
 
   <!-- DISCOVERY CALL -->
-  <section id="contact" class="discovery-split">
-    <div class="discovery-grid">
-      <div class="discovery-image">
-        <img src="assets/images/discovery-call.jpg" alt="Maria Dopheide working">
+  <section id="contact" class="my-20 p-0">
+    <div class="grid grid-cols-1 nav:min-h-[520px] nav:grid-cols-[40%_60%]">
+      <div class="h-80 overflow-hidden bg-ink nav:h-auto">
+        <img src="assets/images/discovery-call.jpg" alt="Maria Dopheide working" class="block h-full w-full object-cover">
       </div>
-      <div class="discovery-content">
-        <h3>Interested? Let's talk.</h3>
-        <p>60 minutes to map where operations are breaking down and where to start. You bring your situation, I bring an outside view and a clear eye for what's actually slowing you down. You walk out with clarity and a next step.</p>
-        <div class="discovery-meta">Free · 60 min · Live</div>
-        <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Book a Call ↗</a>
+      <div class="flex flex-col justify-center bg-accent px-6 py-11 nav:p-18">
+        <h3 class="mb-5 font-serif text-2xl font-light text-paper">Interested? Let's talk.</h3>
+        <p class="mb-6 max-w-[560px] text-base leading-[1.65] text-paper">60 minutes to map where operations are breaking down and where to start. You bring your situation, I bring an outside view and a clear eye for what's actually slowing you down. You walk out with clarity and a next step.</p>
+        <div class="mb-6 text-xs uppercase tracking-[0.1em] text-paper">Free · 60 min · Live</div>
+        <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid self-start !border-ink !bg-card !text-ink">Book a Call ↗</a>
       </div>
     </div>
   </section>
 
   <!-- HOW I WORK -->
-  <section id="how">
+  <section id="how" class="relative py-20">
     <div class="wrap">
-      <div class="section-head"><span class="index-mark">04</span><h2>How I Work</h2></div>
-      <div class="how-grid">
-        <div class="how-card">
-          <div class="how-title"><span class="how-num">01.</span> <em>Understand</em></div>
-          <p>I start by understanding the founder, how they think, what works for them, what doesn't. Every business is different because every founder is different.</p>
+      <div class="section-head"><span class="index-mark">04</span><h2 class="m-0 font-serif text-2xl font-light leading-[1.05] nav:text-4xl">How I Work</h2></div>
+      <div class="mt-3 grid grid-cols-1 gap-6 nav:grid-cols-4">
+        <div class="card-soft">
+          <div class="mb-4 font-serif text-xl font-normal text-ink"><span class="font-sans text-base font-semibold text-accent">01.</span> <em class="font-normal italic">Understand</em></div>
+          <p class="m-0 text-sm leading-[1.6] text-charcoal">I start by understanding the founder, how they think, what works for them, what doesn't. Every business is different because every founder is different.</p>
         </div>
-        <div class="how-card">
-          <div class="how-title"><span class="how-num">02.</span> <em>Automate</em></div>
-          <p>I look at what can be automated and what should be. Not for the sake of automation, but because saving the founder and the business time and money matters.</p>
+        <div class="card-soft">
+          <div class="mb-4 font-serif text-xl font-normal text-ink"><span class="font-sans text-base font-semibold text-accent">02.</span> <em class="font-normal italic">Automate</em></div>
+          <p class="m-0 text-sm leading-[1.6] text-charcoal">I look at what can be automated and what should be. Not for the sake of automation, but because saving the founder and the business time and money matters.</p>
         </div>
-        <div class="how-card">
-          <div class="how-title"><span class="how-num">03.</span> <em>Partner</em></div>
-          <p>I work as a real partner, building alongside you, not just for you. The people around you can actually understand and run what we build, because they were part of building it.</p>
+        <div class="card-soft">
+          <div class="mb-4 font-serif text-xl font-normal text-ink"><span class="font-sans text-base font-semibold text-accent">03.</span> <em class="font-normal italic">Partner</em></div>
+          <p class="m-0 text-sm leading-[1.6] text-charcoal">I work as a real partner, building alongside you, not just for you. The people around you can actually understand and run what we build, because they were part of building it.</p>
         </div>
-        <div class="how-card">
-          <div class="how-title"><span class="how-num">04.</span> <em>Grow</em></div>
-          <p>I believe in founders learning and growing into their role through the work. When you understand why a system exists, you're not dependent on someone else to fix it when things change.</p>
+        <div class="card-soft">
+          <div class="mb-4 font-serif text-xl font-normal text-ink"><span class="font-sans text-base font-semibold text-accent">04.</span> <em class="font-normal italic">Grow</em></div>
+          <p class="m-0 text-sm leading-[1.6] text-charcoal">I believe in founders learning and growing into their role through the work. When you understand why a system exists, you're not dependent on someone else to fix it when things change.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- PRICING -->
-  <section id="pricing">
+  <section id="pricing" class="relative py-20">
     <div class="wrap">
-      <div class="section-head"><span class="index-mark">05</span><h2>Ways to Work Together</h2></div>
-      <div class="pricing-grid">
-        <div class="price-card">
-          <div class="tier">Tier 1</div>
-          <h3>Advisory &amp; Training</h3>
-          <div class="price">€400<span>/month</span></div>
-          <div class="hours">4 hours / month</div>
-          <ul>
-            <li>Weekly strategy call</li>
-            <li>Async support via email/Slack</li>
-            <li>Periodic check-ins</li>
-            <li>Guidance on delegation and process, discussed but not implemented by me</li>
+      <div class="section-head"><span class="index-mark">05</span><h2 class="m-0 font-serif text-2xl font-light leading-[1.05] nav:text-4xl">Ways to Work Together</h2></div>
+      <div class="mt-4 grid grid-cols-1 gap-6 nav:grid-cols-3">
+
+        <div class="card-hard flex flex-col">
+          <div class="mb-2 text-xs uppercase tracking-[0.1em] text-charcoal">Tier 1</div>
+          <h3 class="mb-1 font-serif text-xl font-normal">Advisory &amp; Training</h3>
+          <div class="mt-4 mb-1 font-serif text-2xl font-light">€400<span class="font-sans text-sm text-charcoal">/month</span></div>
+          <div class="mb-5 text-xs text-charcoal">4 hours / month</div>
+          <ul class="m-0 mb-6 list-none p-0">
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal first:border-t-0">Weekly strategy call</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Async support via email/Slack</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Periodic check-ins</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Guidance on delegation and process, discussed but not implemented by me</li>
           </ul>
-          <div class="fit">Best fit: teams with some structure already in place who want a sounding board and strategic partner.</div>
-          <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Book a Call ↗</a>
+          <div class="mb-5 text-xs italic text-charcoal">Best fit: teams with some structure already in place who want a sounding board and strategic partner.</div>
+          <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid mt-auto self-start">Book a Call ↗</a>
         </div>
-        <div class="price-card">
-          <div class="tier">Tier 2</div>
-          <h3>Operations Partner</h3>
-          <div class="price">€1,750<span>/month</span></div>
-          <div class="hours">25 hours / month</div>
-          <ul>
-            <li>Bi-weekly/weekly working sessions</li>
-            <li>Process review and setup</li>
-            <li>Automations and AI integrated into workflows</li>
-            <li>Project management and technical setup support</li>
-            <li>Hiring/training guidance, delegation frameworks</li>
-            <li>Ongoing async support</li>
+
+        <div class="card-hard flex flex-col">
+          <div class="mb-2 text-xs uppercase tracking-[0.1em] text-charcoal">Tier 2</div>
+          <h3 class="mb-1 font-serif text-xl font-normal">Operations Partner</h3>
+          <div class="mt-4 mb-1 font-serif text-2xl font-light">€1,750<span class="font-sans text-sm text-charcoal">/month</span></div>
+          <div class="mb-5 text-xs text-charcoal">25 hours / month</div>
+          <ul class="m-0 mb-6 list-none p-0">
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal first:border-t-0">Bi-weekly/weekly working sessions</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Process review and setup</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Automations and AI integrated into workflows</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Project management and technical setup support</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Hiring/training guidance, delegation frameworks</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Ongoing async support</li>
           </ul>
-          <div class="fit">Best fit: founders or COOs who need someone actually building and implementing alongside them.</div>
-          <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Book a Call ↗</a>
+          <div class="mb-5 text-xs italic text-charcoal">Best fit: founders or COOs who need someone actually building and implementing alongside them.</div>
+          <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid mt-auto self-start">Book a Call ↗</a>
         </div>
-        <div class="price-card">
-          <div class="tier">Tier 3</div>
-          <h3>Fractional COO</h3>
-          <div class="price">€2,800<span>/month</span></div>
-          <div class="hours">40 hours / month</div>
-          <ul>
-            <li>Everything in Tier 2</li>
-            <li>Deep ownership of the operational layer</li>
-            <li>Direct involvement in hiring, process design, team structure</li>
-            <li>Strategic and tactical decisions</li>
-            <li>On the ground as much as needed</li>
+
+        <div class="card-hard flex flex-col">
+          <div class="mb-2 text-xs uppercase tracking-[0.1em] text-charcoal">Tier 3</div>
+          <h3 class="mb-1 font-serif text-xl font-normal">Fractional COO</h3>
+          <div class="mt-4 mb-1 font-serif text-2xl font-light">€2,800<span class="font-sans text-sm text-charcoal">/month</span></div>
+          <div class="mb-5 text-xs text-charcoal">40 hours / month</div>
+          <ul class="m-0 mb-6 list-none p-0">
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal first:border-t-0">Everything in Tier 2</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Deep ownership of the operational layer</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Direct involvement in hiring, process design, team structure</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">Strategic and tactical decisions</li>
+            <li class="border-t border-hairline py-2 text-sm leading-[1.5] text-charcoal">On the ground as much as needed</li>
           </ul>
-          <div class="fit">Best fit: founders ready for a true operational partner, not just advice or part-time support.</div>
-          <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Book a Call ↗</a>
+          <div class="mb-5 text-xs italic text-charcoal">Best fit: founders ready for a true operational partner, not just advice or part-time support.</div>
+          <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid mt-auto self-start">Book a Call ↗</a>
         </div>
+
       </div>
-      <p class="custom-note"><b>Can't find the right fit?</b> Every founder and every business is different. We can put together a custom agreement that actually fits how you work — best for anyone who wants to start with a conversation rather than a fixed package.</p>
+      <p class="mt-8 text-center text-base text-charcoal"><b class="text-ink">Can't find the right fit?</b> Every founder and every business is different. We can put together a custom agreement that actually fits how you work — best for anyone who wants to start with a conversation rather than a fixed package.</p>
     </div>
   </section>
 
   <!-- REVIEWS -->
-  <section id="reviews">
+  <section id="reviews" class="relative py-20">
     <div class="wrap">
-      <div class="section-head reviews-head">
-        <span class="index-mark">06</span><h2>Reviews</h2>
-        <div class="carousel-nav">
-          <button class="carousel-btn" id="reviewPrev" aria-label="Previous review">←</button>
-          <button class="carousel-btn" id="reviewNext" aria-label="Next review">→</button>
+      <div class="section-head w-full justify-between">
+        <span class="index-mark">06</span><h2 class="m-0 font-serif text-2xl font-light leading-[1.05] nav:text-4xl">Reviews</h2>
+        <div class="ml-auto flex gap-3">
+          <button id="reviewPrev" aria-label="Previous review"
+                  class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-[1.5px] border-ink bg-card font-sans text-base shadow-[var(--shadow-btn)] transition-transform hover:translate-x-0.5 hover:-translate-y-0.5">←</button>
+          <button id="reviewNext" aria-label="Next review"
+                  class="flex h-11 w-11 cursor-pointer items-center justify-center rounded-full border-[1.5px] border-ink bg-card font-sans text-base shadow-[var(--shadow-btn)] transition-transform hover:translate-x-0.5 hover:-translate-y-0.5">→</button>
         </div>
       </div>
-      <div class="review-carousel" id="reviewCarousel">
-        <div class="review-card">
+      <!-- отступы дают место мягкой тени: скролл-контейнер обрезает всё за границами -->
+      <div id="reviewCarousel"
+           class="-mx-5 flex snap-x snap-mandatory gap-6 overflow-x-auto px-5 pt-5 pb-10 [scrollbar-width:none] nav:-mx-[30px] nav:px-[30px]">
+        <div class="card-soft flex shrink-0 basis-[88%] snap-start flex-col justify-between nav:basis-[calc(33.333%-16px)]">
           <div>
-            <span class="quote-mark">"</span>
-            <p>I worked with Maria for a couple of months, and she helped me organise our internal systems and improve how I delegate tasks within my team. What I really appreciated is how practical she is. Her sessions are very hands-on, identifying what needs to change and how to fix it. I would definitely recommend working with her. She's direct, practical, and focused on real improvements.</p>
+            <span class="mb-2 block font-serif text-2xl leading-none text-accent">"</span>
+            <p class="mb-5 text-base leading-[1.65] text-charcoal">I worked with Maria for a couple of months, and she helped me organise our internal systems and improve how I delegate tasks within my team. What I really appreciated is how practical she is. Her sessions are very hands-on, identifying what needs to change and how to fix it. I would definitely recommend working with her. She's direct, practical, and focused on real improvements.</p>
           </div>
-          <div class="attribution">Founder, lead-gen startup — Cyprus</div>
+          <div class="text-xs font-semibold text-ink">Founder, lead-gen startup — Cyprus</div>
         </div>
-        <div class="review-card">
+        <div class="card-soft flex shrink-0 basis-[88%] snap-start flex-col justify-between nav:basis-[calc(33.333%-16px)]">
           <div>
-            <span class="quote-mark">"</span>
-            <p>A strong right-hand operator. Exactly what a fast-moving SaaS and consulting business needed.</p>
+            <span class="mb-2 block font-serif text-2xl leading-none text-accent">"</span>
+            <p class="mb-5 text-base leading-[1.65] text-charcoal">A strong right-hand operator. Exactly what a fast-moving SaaS and consulting business needed.</p>
           </div>
-          <div class="attribution">Operator, SaaS &amp; consulting — Netherlands</div>
+          <div class="text-xs font-semibold text-ink">Operator, SaaS &amp; consulting — Netherlands</div>
         </div>
-        <div class="review-card">
+        <div class="card-soft flex shrink-0 basis-[88%] snap-start flex-col justify-between nav:basis-[calc(33.333%-16px)]">
           <div>
-            <span class="quote-mark">"</span>
-            <p>Maria is an exceptionally talented and inspiring professional whose creativity, strategic vision, and dedication make every project she touches outstanding. Working with Maria is both a privilege and a masterclass in excellence.</p>
+            <span class="mb-2 block font-serif text-2xl leading-none text-accent">"</span>
+            <p class="mb-5 text-base leading-[1.65] text-charcoal">Maria is an exceptionally talented and inspiring professional whose creativity, strategic vision, and dedication make every project she touches outstanding. Working with Maria is both a privilege and a masterclass in excellence.</p>
           </div>
-          <div class="attribution">Founder, ecommerce — Switzerland</div>
+          <div class="text-xs font-semibold text-ink">Founder, ecommerce — Switzerland</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ABOUT -->
-  <section id="about">
+  <section id="about" class="relative py-20">
     <div class="wrap">
-      <div class="section-head"><span class="index-mark">07</span><h2>About Me</h2></div>
-      <div class="about-grid">
-        <img src="assets/images/about-collage.jpg" alt="Maria Dopheide">
-        <div class="about-text">
-          <p>Most founders I've worked with didn't struggle with vision. They struggled with everything that comes after.</p>
-          <p>Too many ideas at once, too many moving parts, and a team trying to keep up without quite knowing how. The gap between where a founder wants to go and what the business can actually execute on, that's where things break down.</p>
-          <p>After 7 years working alongside founders across different industries and stages, from early scrappy startups to scaling businesses, I've seen the same patterns repeat. The operational challenges that slow companies down are rarely unique. What's unique is how each founder's brain shapes them. That's the gap I work in.</p>
-          <p>I partner with founders and the people around them, VAs, EAs, operators, COOs, to build the operational layer that makes execution actually possible. Not generic systems copied from a playbook, but structures that work for how the founder actually thinks and operates.</p>
-          <p>Over time I've developed a specialism in businesses where the founder has ADHD. That's where the gap tends to be widest and most misunderstood. Once you understand how an ADHD founder actually processes information, makes decisions, and moves through the world, a lot of what looked like chaos starts to make sense. And once it makes sense, you can build around it.</p>
-          <p>I'm not an ADHD coach. I don't work on the founder. I work on the environment around them.</p>
-          <p>I've worked across SaaS, fintech, and project management before becoming the allrounder. I work exclusively with European clients, speak German, Russian, and English, and have lived experience as a fractional COO.</p>
+      <div class="section-head"><span class="index-mark">07</span><h2 class="m-0 font-serif text-2xl font-light leading-[1.05] nav:text-4xl">About Me</h2></div>
+      <div class="grid grid-cols-1 items-center gap-15 nav:grid-cols-[0.85fr_1.15fr]">
+        <img src="assets/images/about-collage.jpg" alt="Maria Dopheide"
+             class="rounded-card border-[1.5px] border-ink shadow-[var(--shadow-card)]">
+        <div>
+          <p class="mb-5 font-serif text-lg italic leading-[1.7] text-ink nav:text-xl">Most founders I've worked with didn't struggle with vision. They struggled with everything that comes after.</p>
+          <p class="mb-5 text-base leading-[1.7] text-charcoal">Too many ideas at once, too many moving parts, and a team trying to keep up without quite knowing how. The gap between where a founder wants to go and what the business can actually execute on, that's where things break down.</p>
+          <p class="mb-5 text-base leading-[1.7] text-charcoal">After 7 years working alongside founders across different industries and stages, from early scrappy startups to scaling businesses, I've seen the same patterns repeat. The operational challenges that slow companies down are rarely unique. What's unique is how each founder's brain shapes them. That's the gap I work in.</p>
+          <p class="mb-5 text-base leading-[1.7] text-charcoal">I partner with founders and the people around them, VAs, EAs, operators, COOs, to build the operational layer that makes execution actually possible. Not generic systems copied from a playbook, but structures that work for how the founder actually thinks and operates.</p>
+          <p class="mb-5 text-base leading-[1.7] text-charcoal">Over time I've developed a specialism in businesses where the founder has ADHD. That's where the gap tends to be widest and most misunderstood. Once you understand how an ADHD founder actually processes information, makes decisions, and moves through the world, a lot of what looked like chaos starts to make sense. And once it makes sense, you can build around it.</p>
+          <p class="mb-5 text-base leading-[1.7] text-charcoal">I'm not an ADHD coach. I don't work on the founder. I work on the environment around them.</p>
+          <p class="m-0 text-base leading-[1.7] text-charcoal">I've worked across SaaS, fintech, and project management before becoming the allrounder. I work exclusively with European clients, speak German, Russian, and English, and have lived experience as a fractional COO.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- FINAL CTA -->
-  <section class="final-cta">
-    <img class="final-cta-img" src="assets/images/final-cta.jpg" alt="Maria Dopheide">
-    <div class="final-cta-overlay"></div>
-    <div class="final-cta-content">
-      <h2>Ready to build the <em class="accent">systems</em> that hold?</h2>
-      <p>Book a free 60-minute discovery call and walk out with clarity on where to start.</p>
-      <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid">Book a Call ↗</a>
+  <section class="relative flex min-h-[460px] items-center overflow-hidden nav:min-h-[560px]">
+    <img src="assets/images/final-cta.jpg" alt="Maria Dopheide"
+         class="absolute inset-0 h-full w-full object-cover object-[center_20%]">
+    <div class="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.72)_0%,rgba(0,0,0,0.45)_45%,rgba(0,0,0,0.15)_75%)]"></div>
+    <div class="relative z-[2] mx-auto w-full max-w-[1200px] px-8">
+      <h2 class="mb-6 max-w-[620px] font-serif text-2xl font-light leading-[1.05] text-white nav:text-4xl">Ready to build the <em class="font-normal italic text-accent">systems</em> that hold?</h2>
+      <p class="mb-8 max-w-[420px] text-lg leading-[1.6] text-[#f0f0ec]">Book a free 60-minute discovery call and walk out with clarity on where to start.</p>
+      <a href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer" class="btn btn-solid !border-ink !bg-card !text-ink">Book a Call ↗</a>
     </div>
   </section>
 </main>
 
-<footer>
-  <div class="wrap foot-bottom">
+<footer class="bg-ink py-7 text-paper">
+  <div class="wrap flex flex-wrap items-center justify-between gap-4 text-xs text-[#999]">
     <span>© 2026 Maria Dopheide. Operations Partner &amp; Consultant.</span>
-    <div class="foot-links-inline">
-      <a href="mailto:miadopheide@gmail.com">miadopheide@gmail.com</a>
-      <a href="https://www.linkedin.com/in/mdopheide/" target="_blank">LinkedIn</a>
+    <div class="flex flex-wrap gap-6">
+      <a href="mailto:miadopheide@gmail.com" class="text-xs text-paper no-underline hover:text-coral-link">miadopheide@gmail.com</a>
+      <a href="https://www.linkedin.com/in/mdopheide/" target="_blank" rel="noopener noreferrer" class="text-xs text-paper no-underline hover:text-coral-link">LinkedIn</a>
     </div>
   </div>
 </footer>
