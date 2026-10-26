@@ -1,7 +1,7 @@
 {
   "name": "mariadopheide-com",
   "version": "1.0.0",
-  "description": "Статический сайт mariadopheide.com",
+  "description": "Static site for mariadopheide.com",
   "scripts": {
     "build": "tailwindcss -i assets/css/tailwind.css -o assets/css/styles.css --minify",
     "watch": "tailwindcss -i assets/css/tailwind.css -o assets/css/styles.css --watch",

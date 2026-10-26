@@ -1,82 +1,98 @@
 # mariadopheide.com
 
-Статический сайт на Tailwind CSS. Сборка происходит **локально**, в
-репозиторий коммитится уже готовый `assets/css/styles.css` — поэтому
-Netlify и GitHub Pages публикуют файлы как есть, без своей сборки.
+Static one-page site built with Tailwind CSS. The CSS is built **locally** and
+the finished `assets/css/styles.css` is committed, so Netlify publishes the
+files as they are, with no build step of its own.
 
-## Структура
+## Structure
 
 ```
-index.html                 разметка (утилиты Tailwind)
+index.html                    markup: semantic classes, one section after another
 assets/
-  css/tailwind.css         ← ИСХОДНИК: токены и компоненты, правим здесь
-  css/styles.css           ← РЕЗУЛЬТАТ СБОРКИ, вручную не трогать
-  js/main.js               плавная прокрутка + карусель отзывов
-  images/                  изображения
-netlify.toml               конфигурация публикации
+  css/tailwind.css            ← SOURCE: tokens, base styles and components, edit here
+  css/styles.css              ← BUILD OUTPUT, never edit by hand
+  js/main.js                  mobile menu
+  fonts/                      Nyght Serif (headings) + its licence, OFL.txt
+  images/                     photos and the logo
+netlify.toml                  publish settings
 ```
 
-## Работа
+## Working on it
 
-Один раз после клона:
+Once after cloning:
 
 ```bash
 npm install
 ```
 
-Во время работы — пересборка CSS при каждом изменении:
+While working, rebuild the CSS on every change:
 
 ```bash
 npm run watch
 ```
 
-В соседней вкладке — локальный сервер:
+In another tab, a local server:
 
 ```bash
 npm run serve
 ```
 
-Открыть http://127.0.0.1:8765 — смотреть нужно именно через сервер,
-по `file://` относительные пути не работают.
+Open http://127.0.0.1:8765. Always go through the server: relative paths
+do not work over `file://`.
 
-## Перед коммитом
+## Before every commit
 
 ```bash
 npm run build
 ```
 
-Это обязательный шаг: `styles.css` попадает в репозиторий, и если его не
-пересобрать, на сайт уедут старые стили.
+This step is required: `styles.css` is part of the repository, and without a
+rebuild the live site keeps the old styles.
 
-## Дизайн-система
+## Design system
 
-Все токены — в блоке `@theme` файла `assets/css/tailwind.css`.
+Everything lives in `assets/css/tailwind.css`.
 
-| | Значения |
+| | |
 |---|---|
-| Кегли | 12 · 14 · 16 · 18 · 24 · 32 · 40 · 46 · 64 |
-| Отступы | кратны 4 (`--spacing: 4px`, поэтому `p-8` = 32px) |
-| Брейкпоинт | `nav:` = от 900px; базовые классы — мобильные |
-| Цвета | paper, card, ink, charcoal, accent, hairline |
+| Tokens | `@theme` block: colours (`ink`, `bone`, `cream`, `accent`…) and fonts |
+| Headings | Nyght Serif Light / Light Italic, self-hosted; every display size is multiplied by `--display-scale` |
+| Body | Manrope from Google Fonts |
+| Accent | `#FD3631`, the brand red, stays as it is |
+| Grid | `.grid12` (12 columns), `.bento` (tiles), `.cols4` |
+| Breakpoint | one, at 900px: below it every grid collapses to a single column and the burger menu appears |
 
-Компоненты `.btn`, `.card-hard`, `.card-soft`, `.index-mark`, `.wrap`
-описаны там же в `@layer components`.
+Components (`.btn`, `.tile`, `.plan`, `.review-card`…) are written as plain CSS
+in `@layer components`, one block per section, in page order.
 
-**Важно про слои:** утилиты Tailwind перебивают компоненты независимо от
-специфичности. Поэтому видимость навигации и размер её ссылок заданы
-внутри `@layer components`, а не утилитами в разметке.
+Tailwind runs **without Preflight**: the design was drawn on browser defaults
+plus the small reset in `@layer base`. Utilities still work for quick tweaks
+(`bg-ink`, `text-accent`, `font-display`), and because utilities sit in a later
+layer they win over components.
 
-## Публикация
+### Brand graphics
+
+Background graphics built from the logo (chaos line in ADHD, timeline in How I
+Work, ripple in Automations & AI, loop in the final call to action) are inline
+SVG. They animate with CSS only and respect `prefers-reduced-motion`; where
+scroll-driven animations are unsupported they show their final state.
+
+## Fonts
+
+Nyght Serif by Maksym Kobuzan is licensed under the SIL Open Font License 1.1.
+The licence travels with the files in `assets/fonts/OFL.txt` and must stay there.
+
+## Publishing
 
 ```bash
-npm run build && git add -A && git commit -m "описание" && git push
+npm run build && git add -A && git commit -m "message" && git push
 ```
 
-Netlify пересобирает автоматически после пуша в `main`.
+Netlify deploys automatically after a push to `main`.
 
-## Ссылка на запись
+## Booking link
 
-Ссылка на календарь встречается в `index.html` семь раз (включая кнопку в шапке):
+The calendar link appears in `index.html` seven times (including the header button):
 
 ```bash
 grep -n "calendar.app.google" index.html
