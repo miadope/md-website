@@ -21,9 +21,7 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Maria Dopheide, Fractional COO: operations partner for founders who move fast">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/Manrope-Variable.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/NyghtSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/styles.css">
 <script>
@@ -68,7 +66,7 @@
       <h1 class="h hero__title" data-split style="--delay: 120ms"><em class="acc">Operations</em> partner for founders who <em class="acc">move</em> fast</h1>
       <div class="grid12 hero__grid">
         <div class="hero__photo" data-reveal="clip" style="--delay: 250ms">
-          <img src="assets/images/hero-portrait.jpg" alt="Maria Dopheide" fetchpriority="high">
+          <picture><source type="image/webp" srcset="assets/images/hero-portrait-400.webp 400w, assets/images/hero-portrait-800.webp 800w, assets/images/hero-portrait-1200.webp 1200w" sizes="(max-width: 900px) 89vw, 21vw"><img src="assets/images/hero-portrait.jpg" sizes="(max-width: 900px) 89vw, 21vw" alt="Maria Dopheide" fetchpriority="high"></picture>
         </div>
         <div class="hero__lead" data-reveal style="--delay: 450ms">
           <p class="hero__sub">I help founders build the systems that hold, so growth doesn't outrun the operations behind it — with a specialism in ADHD-founder environments.</p>
@@ -214,7 +212,7 @@
       <a class="btn btn-dark" href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer">Book a Call<svg class="arr" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5"/><path d="M4.75 3.5h5.75v5.75"/></svg></a>
     </div>
     <div class="contact__photo" data-reveal="clip">
-      <img src="assets/images/discovery-call.jpg" alt="Maria Dopheide working" loading="lazy">
+      <picture><source type="image/webp" srcset="assets/images/discovery-call-480.webp 480w, assets/images/discovery-call-800.webp 800w, assets/images/discovery-call-1000.webp 1000w" sizes="(max-width: 900px) 115vw, 48vw"><img src="assets/images/discovery-call.jpg" sizes="(max-width: 900px) 115vw, 48vw" alt="Maria Dopheide working" loading="lazy"></picture>
     </div>
   </section>
 
@@ -354,8 +352,8 @@
   <section id="about" class="about">
     <div class="split">
       <div class="about__photos" data-reveal="clip" data-reveal-at="100">
-        <img class="about__main" src="assets/images/about-portrait.jpg" alt="Maria Dopheide" loading="lazy">
-        <img class="about__inset" src="assets/images/about-garden.jpg" alt="Maria Dopheide in a garden" loading="lazy">
+        <picture><source type="image/webp" srcset="assets/images/about-portrait-480.webp 480w, assets/images/about-portrait-800.webp 800w, assets/images/about-portrait-1200.webp 1200w" sizes="(max-width: 900px) 115vw, 48vw"><img class="about__main" src="assets/images/about-portrait.jpg" sizes="(max-width: 900px) 115vw, 48vw" alt="Maria Dopheide" loading="lazy"></picture>
+        <picture><source type="image/webp" srcset="assets/images/about-garden-300.webp 300w, assets/images/about-garden-500.webp 500w, assets/images/about-garden-750.webp 750w" sizes="(max-width: 1077px) 140px, (min-width: 1692px) 220px, 13vw"><img class="about__inset" src="assets/images/about-garden.jpg" sizes="(max-width: 1077px) 140px, (min-width: 1692px) 220px, 13vw" alt="Maria Dopheide in a garden" loading="lazy"></picture>
       </div>
       <div class="about__text" data-stagger>
         <div class="about__head">
@@ -389,7 +387,7 @@
 
   <!-- FINAL CTA -->
   <section class="cta">
-    <img class="cta__bg" src="assets/images/final-cta.jpg" alt="" loading="lazy">
+    <picture><source type="image/webp" srcset="assets/images/final-cta-640.webp 640w, assets/images/final-cta-1000.webp 1000w, assets/images/final-cta-1600.webp 1600w" sizes="115vw"><img class="cta__bg" src="assets/images/final-cta.jpg" sizes="115vw" alt="" loading="lazy"></picture>
     <div class="cta__shade"></div>
     <!-- brand graphic: loop with the red dot travelling along it -->
     <div class="desk cta__loop" aria-hidden="true">

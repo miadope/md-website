@@ -117,8 +117,26 @@ wide screens never show a gap.
 
 ## Fonts
 
-Nyght Serif by Maksym Kobuzan is licensed under the SIL Open Font License 1.1.
-The licence travels with the files in `assets/fonts/OFL.txt` and must stay there.
+Both fonts are self-hosted in `assets/fonts/`; nothing loads from Google Fonts.
+
+- Nyght Serif by Maksym Kobuzan, SIL Open Font License 1.1; the licence is
+  `assets/fonts/OFL.txt` and must stay with the files.
+- Manrope (latin subset, one variable file covering weights 400–800), SIL Open
+  Font License 1.1; the licence is `assets/fonts/Manrope-OFL.txt`.
+
+## Photos
+
+Each photo is served as WebP in three widths through `<picture>`, with the
+original JPEG as the fallback, so phones download a fraction of the full file.
+To add or replace a photo, put the JPEG in `assets/images/` and make the WebP
+widths (needs `cwebp`, e.g. `brew install webp`):
+
+```bash
+for w in 480 800 1200; do cwebp -q 78 -resize $w 0 assets/images/NAME.jpg -o assets/images/NAME-$w.webp; done
+```
+
+then copy the `<picture>` markup of a similar photo in `index.html` and adjust
+`srcset` and `sizes` (`sizes` is how wide the photo is on screen).
 
 ## Publishing
 
