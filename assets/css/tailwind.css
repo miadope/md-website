@@ -25,6 +25,13 @@
   font-display: swap;
 }
 
+/* hover light on cards; registered so it can fade in and out */
+@property --spot {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
+
 /* ─────────────────────────────────────────────────────────────
    Design tokens. Tailwind also turns these into utilities
    (bg-ink, text-accent, font-display…) for quick one-off tweaks.
@@ -106,6 +113,8 @@
     padding-block: clamp(44px, 4.4vw, 64px);
     border-top: 1px solid var(--color-rule);
   }
+  /* the marquee already draws this line with its bottom border */
+  .marquee + .section { border-top: 0; }
   .sec-head { row-gap: 16px; }
   .sec-head > .label { grid-column: 1 / span 3; }
   .sec-head > :not(.label) { grid-column: 4 / span 9; }
@@ -188,10 +197,17 @@
     gap: 24px;
     padding-block: 22px;
   }
-  .logo img { width: 80px; height: 34px; object-fit: cover; }
+  /* the logo is inline SVG painted with currentColor, so CSS sets its colour */
+  .logo-mark { display: block; width: 62px; height: auto; color: var(--color-accent); }
   .nav { display: flex; gap: 34px; }
-  .nav a { font: 500 15px/1 var(--font-sans); color: var(--color-ink); }
-  .nav a:hover { color: var(--color-accent); }
+  .nav a {
+    padding: 6px 0;
+    font: 500 15px/1 var(--font-sans);
+    color: var(--color-ink);
+    background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat;
+    transition: background-size 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s ease;
+  }
+  .nav a:hover { color: var(--color-accent); background-size: 100% 1px; }
   .site-header__actions { display: flex; align-items: center; gap: 10px; }
   .burger {
     display: none;
@@ -267,7 +283,9 @@
     font-size: 12px;
     font-weight: 700;
     letter-spacing: 0.1em;
+    transition: translate 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
+  .toc a:hover span { translate: 4px 0; }
 
   /* ── Marquee ────────────────────────────────────────────── */
   .marquee {
@@ -277,7 +295,8 @@
     border-block: 1px solid var(--color-rule);
     white-space: nowrap;
   }
-  .marquee__track { display: flex; width: max-content; animation: marquee 40s linear infinite; }
+  /* six identical groups: moving by half (three) loops seamlessly and still fills screens up to ~3600px */
+  .marquee__track { display: flex; width: max-content; animation: marquee 120s linear infinite; }
   .marquee__group { display: flex; flex-shrink: 0; }
   .marquee__group span {
     padding-right: 28px;
@@ -653,7 +672,7 @@
     margin-top: 24px;
     padding: 0 4px;
   }
-  .ft__logo { width: 80px; height: 34px; object-fit: cover; }
+  .ft-row .logo-mark { margin-block: 4px; }  /* keeps the row at the old 34px logo height */
   .ft-row p { font-size: 13px; color: var(--color-muted); }
 
   /* ── Brand graphics ─────────────────────────────────────────
@@ -695,6 +714,141 @@
   @media (prefers-reduced-motion: reduce) {
     .bg-along { display: none; }
     .marquee__track { animation: none; }
+  }
+
+  /* ── Motion ─────────────────────────────────────────────────
+     Everything below only applies while <html> has .motion, which the
+     inline script in <head> sets unless the visitor prefers reduced
+     motion. Without it the page renders fully static and fully visible.
+     Hooks in the markup:
+       data-split      heading words rise out of a mask
+       data-reveal     the block fades up; ="clip" wipes its photo open
+       data-stagger    the group's children fade up one after another
+       data-spot       a soft light follows the pointer over the card  */
+  :root {
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out: cubic-bezier(0.77, 0, 0.18, 1);
+  }
+
+  .motion .site-header { animation: header-in 1s var(--ease-out) both; }
+  @keyframes header-in { from { opacity: 0; translate: 0 -12px; } }
+
+  /* scroll progress: a hairline of brand red across the top */
+  .progress { display: none; }
+  @supports (animation-timeline: scroll()) {
+    .motion .progress {
+      display: block;
+      position: fixed;
+      inset: 0 0 auto;
+      z-index: 100;
+      height: 3px;
+      background: var(--color-accent);
+      transform-origin: 0 50%;
+      animation: progress linear both;
+      animation-timeline: scroll(root);
+    }
+  }
+  @keyframes progress { from { scale: 0 1; } to { scale: 1 1; } }
+
+  /* blocks and stagger children; translate/opacity reveal, transform stays free for hover */
+  .motion [data-reveal]:not([data-reveal="clip"]),
+  .motion [data-stagger] > :not([data-split]) {
+    --rd: calc(var(--i, 0) * 80ms + var(--delay, 0ms));
+    transition:
+      opacity 0.9s var(--ease-out) var(--rd),
+      translate 1.1s var(--ease-out) var(--rd),
+      transform 0.5s var(--ease-out),
+      --spot 0.4s ease;
+  }
+  .motion [data-reveal]:not([data-reveal="clip"]):not(.is-in),
+  .motion [data-stagger]:not(.is-in) > :not([data-split]) {
+    opacity: 0;
+    translate: 0 32px;
+  }
+
+  /* headings: each word in its own mask; padding keeps italics and descenders unclipped */
+  .motion [data-split]:not(.is-split) { opacity: 0; }
+  .motion [data-split] .w {
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    padding: 0.1em 0.08em 0.16em;
+    margin: -0.1em -0.08em -0.16em;
+  }
+  .motion [data-split] .wi {
+    display: inline-block;
+    translate: 0 115%;
+    transition: translate 1.2s var(--ease-out);
+    transition-delay: calc(var(--wi) * 50ms + var(--delay, 0ms));
+  }
+  .motion [data-split].is-in .wi { translate: none; }
+
+  /* photos wipe open from the bottom while settling from a slight zoom */
+  .motion [data-reveal="clip"] img:not(.about__inset) {
+    clip-path: inset(100% 0 0 0);
+    scale: calc(var(--rest-scale, 1) * 1.2);
+    transition: clip-path 1.4s var(--ease-in-out) var(--delay, 0ms), scale 1.8s var(--ease-out) var(--delay, 0ms);
+  }
+  /* the zoomed hero photo must not widen the page; the frame keeps its arch */
+  .motion .hero__photo { overflow: clip; border-radius: 999px 999px 24px 24px; }
+  .motion [data-reveal="clip"].is-in img:not(.about__inset) {
+    clip-path: inset(0 0 0 0);
+    scale: var(--rest-scale, 1);
+  }
+  /* tall photos enter with their top already on screen, so they wipe downward and start fast */
+  .motion [data-reveal="clip"] img:is(.contact__photo img, .about__main) {
+    transition: clip-path 1.1s var(--ease-out) var(--delay, 0ms), scale 1.6s var(--ease-out) var(--delay, 0ms);
+  }
+  .motion [data-reveal="clip"]:not(.is-in) img:is(.contact__photo img, .about__main) {
+    clip-path: inset(0 0 100% 0);
+  }
+  .motion .about__inset {
+    transition: opacity 0.8s var(--ease-out) 0.45s, translate 1.2s var(--ease-out) 0.45s, scale 1.2s var(--ease-out) 0.45s;
+  }
+  .motion .about__photos:not(.is-in) .about__inset { opacity: 0; translate: 0 48px; scale: 0.85; }
+
+  /* parallax on the large photos, tied to their own pass through the viewport */
+  @supports (animation-timeline: view()) {
+    .motion .contact__photo,
+    .motion .about__photos,
+    .motion .cta { view-timeline: --media block; }
+    .motion .contact__photo img,
+    .motion .about__main,
+    .motion .cta__bg {
+      --rest-scale: 1.15;
+      animation: parallax linear both;
+      animation-timeline: --media;
+      animation-range: cover;
+    }
+    .motion .cta__bg { scale: 1.15; }
+
+    .motion .ft { view-timeline: --ft block; }
+    .motion .ft__wordmark {
+      animation: rise linear both;
+      animation-timeline: --ft;
+      animation-range: entry 10% entry 100%;
+    }
+  }
+  @keyframes parallax { from { translate: 0 -6%; } to { translate: 0 6%; } }
+  @keyframes rise { from { translate: 0 60%; } }
+
+  /* buttons drift toward the pointer (set in main.js) */
+  .motion .btn {
+    transition: transform 0.5s var(--ease-out), background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+  }
+
+  /* light that follows the pointer over cards: red on light cards, cream on dark ones */
+  .motion [data-spot] {
+    --spot-rgb: 253 54 49;
+    background-image: radial-gradient(480px circle at var(--mx, 50%) var(--my, 50%), rgb(var(--spot-rgb) / var(--spot)), transparent 65%);
+  }
+  .motion :is(.tile--ink, .tile--accent, .plan--dark, .review-card--dark, .ftile--email, .ftile--linkedin)[data-spot] {
+    --spot-rgb: 255 253 248;
+  }
+  .motion [data-spot]:hover { --spot: 0.12; }
+
+  @media print {
+    .motion [data-reveal], .motion [data-stagger] > *, .motion [data-split] .wi { opacity: 1 !important; translate: none !important; }
   }
 
   /* ── Phone and small tablet: below 900px ─────────────────── */

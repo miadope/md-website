@@ -77,6 +77,40 @@ Work, ripple in Automations & AI, loop in the final call to action) are inline
 SVG. They animate with CSS only and respect `prefers-reduced-motion`; where
 scroll-driven animations are unsupported they show their final state.
 
+### Motion
+
+Page motion is plain CSS plus a little of `assets/js/main.js`, no libraries.
+It is opt-in: an inline script in `<head>` adds `.motion` to `<html>` unless
+the visitor prefers reduced motion, and only then do elements start hidden.
+Without it (or without JavaScript) the page is static and fully visible.
+
+Hooks in the markup:
+
+| Attribute | Effect |
+|---|---|
+| `data-split` | heading words rise out of a mask, one after another |
+| `data-reveal` | the block fades up as it enters the viewport; `="clip"` wipes its photo open |
+| `data-stagger` | the group's children fade up in turn |
+| `data-spot` | a soft light follows the pointer over the card |
+| `--delay` | inline custom property to hold an element back, used in the hero |
+
+Also: a red scroll-progress hairline, parallax on the large photos, and
+buttons that drift toward the pointer (mouse only). The marquees are a plain
+CSS loop at constant speed; each holds six copies of its text so even very
+wide screens never show a gap.
+
+## Logo, icons and share image
+
+- `assets/images/logo.svg` is the vector logo (rebuilt from the original
+  `logo.png`). On the page it is inlined as SVG with `fill="currentColor"`,
+  so its colour comes from CSS: `.logo-mark { color: … }`.
+- `favicon.svg`, `favicon.ico` (16/32/48), `apple-touch-icon.png` (180) and
+  `assets/icons/icon-192.png`, `icon-512.png` with `site.webmanifest`: the
+  logo in cream on a brand-red tile.
+- `assets/images/og-image.jpg` (1200×630) is the preview shown when the link
+  is shared; it is referenced by absolute URL in the Open Graph tags, so it
+  only shows once the site is live on mariadopheide.com.
+
 ## Fonts
 
 Nyght Serif by Maksym Kobuzan is licensed under the SIL Open Font License 1.1.

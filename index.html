@@ -5,17 +5,44 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Maria Dopheide — Operations Partner & Consultant</title>
 <meta name="description" content="I help founders build the systems that hold, so growth doesn't outrun the operations behind it — with a specialism in ADHD-founder environments.">
+<link rel="canonical" href="https://mariadopheide.com/">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#FFFDF8">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mariadopheide.com/">
+<meta property="og:site_name" content="Maria Dopheide">
+<meta property="og:title" content="Maria Dopheide — Operations Partner & Consultant">
+<meta property="og:description" content="I help founders build the systems that hold, so growth doesn't outrun the operations behind it — with a specialism in ADHD-founder environments.">
+<meta property="og:image" content="https://mariadopheide.com/assets/images/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Maria Dopheide, Fractional COO: operations partner for founders who move fast">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&display=swap" rel="stylesheet">
 <link rel="preload" href="assets/fonts/NyghtSerif-Light.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="assets/css/styles.css">
+<script>
+  // Motion is opt-in: the hidden-until-revealed states only apply with this class.
+  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    document.documentElement.classList.add('motion');
+    // if main.js never runs, show everything rather than leave it hidden
+    setTimeout(function () {
+      if (!document.documentElement.classList.contains('motion-on')) document.documentElement.classList.remove('motion');
+    }, 3000);
+  }
+</script>
 </head>
 <body>
+<div class="progress" aria-hidden="true"></div>
 
 <header class="site-header">
   <div class="wrap site-header__inner">
-    <a class="logo" href="#"><img src="assets/images/logo.png" alt="Maria Dopheide"></a>
+    <a class="logo" href="#" aria-label="Maria Dopheide"><svg class="logo-mark" viewBox="0 0 1539 640" fill="currentColor" aria-hidden="true"><path d="M0 630V179A196.25 179 0 0 1 392.5 179V460A50.75 51 0 0 0 494 460V179A195.75 179 0 0 1 885.5 179V630H740V179A50.25 51 0 0 0 639.5 179V460A196.25 180 0 0 1 247 460V179A50.75 51 0 0 0 145.5 179V630Z"/><path fill-rule="evenodd" d="M987 10H1241A298 310 0 0 1 1241 630H987ZM1137 136H1229A160 184 0 0 1 1229 504H1137Z"/></svg></a>
     <nav class="nav" id="site-nav" aria-label="Main">
       <a href="#what">What I Do</a>
       <a href="#adhd">ADHD founders</a>
@@ -37,20 +64,20 @@
   <!-- HERO -->
   <section class="hero">
     <div class="wrap hero__inner">
-      <p class="eyebrow eyebrow--dot hero__eyebrow">Maria Dopheide · Fractional COO</p>
-      <h1 class="h hero__title"><em class="acc">Operations</em> partner for founders who <em class="acc">move</em> fast</h1>
+      <p class="eyebrow eyebrow--dot hero__eyebrow" data-reveal>Maria Dopheide · Fractional COO</p>
+      <h1 class="h hero__title" data-split style="--delay: 120ms"><em class="acc">Operations</em> partner for founders who <em class="acc">move</em> fast</h1>
       <div class="grid12 hero__grid">
-        <div class="hero__photo">
+        <div class="hero__photo" data-reveal="clip" style="--delay: 250ms">
           <img src="assets/images/hero-portrait.jpg" alt="Maria Dopheide" fetchpriority="high">
         </div>
-        <div class="hero__lead">
+        <div class="hero__lead" data-reveal style="--delay: 450ms">
           <p class="hero__sub">I help founders build the systems that hold, so growth doesn't outrun the operations behind it — with a specialism in ADHD-founder environments.</p>
           <div class="btn-row">
             <a class="btn btn-red" href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer">Book a Free Discovery Call<svg class="arr" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5"/><path d="M4.75 3.5h5.75v5.75"/></svg></a>
             <a class="btn btn-ghost" href="#what">See What I Do</a>
           </div>
         </div>
-        <nav class="toc" aria-label="Sections">
+        <nav class="toc" aria-label="Sections" data-stagger style="--delay: 550ms">
           <a href="#who"><span>01</span>Who I Work With</a>
           <a href="#what"><span>02</span>What I Do</a>
           <a href="#adhd"><span>03</span>ADHD founders</a>
@@ -67,17 +94,21 @@
     <div class="marquee__track">
       <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
       <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
+      <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
+      <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
+      <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
+      <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
     </div>
   </div>
 
   <!-- 01 WHO I WORK WITH -->
   <section id="who" class="section">
     <div class="wrap">
-      <div class="grid12 sec-head">
+      <div class="grid12 sec-head" data-stagger>
         <p class="label">01</p>
-        <h2 class="h h2">Who I Work With</h2>
+        <h2 class="h h2" data-split>Who I Work With</h2>
       </div>
-      <div class="grid12 who">
+      <div class="grid12 who" data-stagger>
         <div class="who__item">
           <h3 class="h h3">Solo-founders</h3>
           <p class="body">Everything runs through you, and that has quietly become the ceiling on growth.</p>
@@ -97,22 +128,22 @@
   <!-- 02 WHAT I DO -->
   <section id="what" class="section">
     <div class="wrap">
-      <div class="grid12 sec-head">
+      <div class="grid12 sec-head" data-stagger>
         <p class="label">02</p>
         <div class="sec-head__text">
-          <h2 class="h h2">What I Do</h2>
+          <h2 class="h h2" data-split>What I Do</h2>
           <p class="intro">I work in two ways: consulting with you on strategy and systems, and working directly alongside you to build and implement.</p>
         </div>
       </div>
-      <div class="bento services">
-        <div class="tile tile--paper span-4">
+      <div class="bento services" data-stagger>
+        <div data-spot class="tile tile--paper span-4">
           <span class="h tile__num">01</span>
           <div class="tile__text">
             <h3 class="h h3">Process &amp; Systems</h3>
             <p class="body body--sm">Mapping how the business actually runs. Building processes that hold. Setting up the operational layer so nothing depends on one person.</p>
           </div>
         </div>
-        <div class="tile tile--accent span-8 has-ripple">
+        <div data-spot class="tile tile--accent span-8 has-ripple">
           <!-- brand graphic: ripple rings around a dot, in the empty right half of the tile -->
           <svg class="ripple" aria-hidden="true" viewBox="0 0 200 200" fill="none">
             <circle class="bg-ripple" style="--s: 0.22; --o: 0.9; --d: 0s" cx="100" cy="100" r="99" stroke="#16130F" stroke-opacity="0.6" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
@@ -126,21 +157,21 @@
             <p class="tile__lead">Bringing AI and automation into workflows in ways your team will actually use. Removing manual, repetitive work. This is part of all my work, not an add-on.</p>
           </div>
         </div>
-        <div class="tile tile--oat span-5">
+        <div data-spot class="tile tile--oat span-5">
           <span class="h tile__num">03</span>
           <div class="tile__text">
             <h3 class="h h3">People &amp; Delegation</h3>
             <p class="body body--sm">Frameworks to get work off the founder's plate and onto the right person. Hiring and training support. Documentation so the business doesn't break when someone's away.</p>
           </div>
         </div>
-        <div class="tile tile--paper span-4">
+        <div data-spot class="tile tile--paper span-4">
           <span class="h tile__num">04</span>
           <div class="tile__text">
             <h3 class="h h3">Project &amp; Technical Setup</h3>
             <p class="body body--sm">Managing workflows, technical integrations, and the day-to-day operational logistics that most consultants skip over.</p>
           </div>
         </div>
-        <div class="tile tile--ink span-3">
+        <div data-spot class="tile tile--ink span-3">
           <span class="h tile__num">05</span>
           <div class="tile__text">
             <h3 class="h h3">Fractional COO</h3>
@@ -154,12 +185,12 @@
   <!-- 03 ADHD -->
   <section id="adhd" class="section adhd">
     <div class="wrap">
-      <div class="adhd__head">
+      <div class="adhd__head" data-stagger>
         <span class="label">03</span>
-        <h2 class="h h2">Specialized in <em class="acc">ADHD-founder</em> environments</h2>
+        <h2 class="h h2" data-split>Specialized in <em class="acc">ADHD-founder</em> environments</h2>
       </div>
-      <p class="h adhd__lead">I've spent years inside founder-led businesses where the founder's brain moves faster than the systems around them can keep up.</p>
-      <div class="grid12 adhd__grid">
+      <p class="h adhd__lead" data-split>I've spent years inside founder-led businesses where the founder's brain moves faster than the systems around them can keep up.</p>
+      <div class="grid12 adhd__grid" data-stagger>
         <!-- brand graphic: chaos resolving into a straight line -->
         <div class="desk adhd__graphic" aria-hidden="true">
           <svg viewBox="0 0 300 120" fill="none">
@@ -176,13 +207,13 @@
 
   <!-- DISCOVERY CALL -->
   <section id="contact" class="grid12 contact">
-    <div class="contact__body">
+    <div class="contact__body" data-stagger>
       <p class="eyebrow">Free · 60 min · Live</p>
-      <h2 class="h h2">Interested? Let's talk.</h2>
+      <h2 class="h h2" data-split>Interested? Let's talk.</h2>
       <p class="contact__text">60 minutes to map where operations are breaking down and where to start. You bring your situation, I bring an outside view and a clear eye for what's actually slowing you down. You walk out with clarity and a next step.</p>
       <a class="btn btn-dark" href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer">Book a Call<svg class="arr" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5"/><path d="M4.75 3.5h5.75v5.75"/></svg></a>
     </div>
-    <div class="contact__photo">
+    <div class="contact__photo" data-reveal="clip">
       <img src="assets/images/discovery-call.jpg" alt="Maria Dopheide working" loading="lazy">
     </div>
   </section>
@@ -190,14 +221,14 @@
   <!-- 04 HOW I WORK: timeline; the red line runs from step 01 to step 04 -->
   <section id="how" class="how">
     <div class="wrap how__inner">
-      <div class="grid12 sec-head">
+      <div class="grid12 sec-head" data-stagger>
         <p class="label">04</p>
-        <h2 class="h h2">How I Work</h2>
+        <h2 class="h h2" data-split>How I Work</h2>
       </div>
       <div class="timeline">
         <div class="desk timeline__track" aria-hidden="true"></div>
         <div class="desk timeline__progress bg-grow" aria-hidden="true"></div>
-        <div class="cols4 timeline__steps">
+        <div class="cols4 timeline__steps" data-stagger>
           <div class="step">
             <span class="step__num">01</span>
             <h3 class="h step__title"><em>Understand</em></h3>
@@ -226,13 +257,13 @@
   <!-- 05 PRICING -->
   <section id="pricing" class="section pricing">
     <div class="wrap">
-      <div class="grid12 sec-head">
+      <div class="grid12 sec-head" data-stagger>
         <p class="label">05</p>
-        <h2 class="h h2">Ways to Work Together</h2>
+        <h2 class="h h2" data-split>Ways to Work Together</h2>
       </div>
-      <div class="plans">
+      <div class="plans" data-stagger>
 
-        <article class="plan plan--cream">
+        <article data-spot class="plan plan--cream">
           <div class="plan__head">
             <span class="eyebrow">Tier 1</span>
             <span class="plan__hours">4 hours / month</span>
@@ -249,7 +280,7 @@
           <a class="btn btn-dark" href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer">Book a Call<svg class="arr" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5"/><path d="M4.75 3.5h5.75v5.75"/></svg></a>
         </article>
 
-        <article class="plan plan--linen">
+        <article data-spot class="plan plan--linen">
           <div class="plan__head">
             <span class="eyebrow">Tier 2</span>
             <span class="plan__hours">25 hours / month</span>
@@ -268,7 +299,7 @@
           <a class="btn btn-dark" href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer">Book a Call<svg class="arr" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5"/><path d="M4.75 3.5h5.75v5.75"/></svg></a>
         </article>
 
-        <article class="plan plan--dark">
+        <article data-spot class="plan plan--dark">
           <div class="plan__head">
             <span class="eyebrow">Tier 3</span>
             <span class="plan__hours">40 hours / month</span>
@@ -287,7 +318,7 @@
         </article>
 
       </div>
-      <div class="grid12 custom-fit">
+      <div class="grid12 custom-fit" data-reveal>
         <p><b class="h">Can't find the right fit?</b> Every founder and every business is different. We can put together a custom agreement that actually fits how you work — best for anyone who wants to start with a conversation rather than a fixed package.</p>
       </div>
     </div>
@@ -296,21 +327,21 @@
   <!-- 06 REVIEWS -->
   <section id="reviews" class="section reviews">
     <div class="wrap">
-      <div class="grid12 sec-head">
+      <div class="grid12 sec-head" data-stagger>
         <p class="label">06</p>
-        <h2 class="h h2">Reviews</h2>
+        <h2 class="h h2" data-split>Reviews</h2>
       </div>
-      <div class="grid12 reviews__grid">
+      <div class="grid12 reviews__grid" data-stagger>
         <figure class="review-lead">
-          <blockquote class="h"><span class="q">“</span>A strong right-hand operator. Exactly what a fast-moving SaaS and consulting business needed.<span class="q">”</span></blockquote>
+          <blockquote class="h" data-split><span class="q">“</span>A strong right-hand operator. Exactly what a fast-moving SaaS and consulting business needed.<span class="q">”</span></blockquote>
           <figcaption class="eyebrow">Operator, SaaS &amp; consulting — Netherlands</figcaption>
         </figure>
-        <figure class="review-card review-card--light">
+        <figure data-spot class="review-card review-card--light">
           <span class="h review-card__mark" aria-hidden="true">“</span>
           <blockquote>I worked with Maria for a couple of months, and she helped me organise our internal systems and improve how I delegate tasks within my team. What I really appreciated is how practical she is. Her sessions are very hands-on, identifying what needs to change and how to fix it. I would definitely recommend working with her. She's direct, practical, and focused on real improvements.</blockquote>
           <figcaption>Founder, lead-gen startup — Cyprus</figcaption>
         </figure>
-        <figure class="review-card review-card--dark">
+        <figure data-spot class="review-card review-card--dark">
           <span class="h review-card__mark" aria-hidden="true">“</span>
           <blockquote>Maria is an exceptionally talented and inspiring professional whose creativity, strategic vision, and dedication make every project she touches outstanding. Working with Maria is both a privilege and a masterclass in excellence.</blockquote>
           <figcaption>Founder, ecommerce — Switzerland</figcaption>
@@ -322,16 +353,16 @@
   <!-- 07 ABOUT: split screen, portrait left with a small second photo pinned on it -->
   <section id="about" class="about">
     <div class="split">
-      <div class="about__photos">
+      <div class="about__photos" data-reveal="clip">
         <img class="about__main" src="assets/images/about-portrait.jpg" alt="Maria Dopheide" loading="lazy">
         <img class="about__inset" src="assets/images/about-garden.jpg" alt="Maria Dopheide in a garden" loading="lazy">
       </div>
-      <div class="about__text">
+      <div class="about__text" data-stagger>
         <div class="about__head">
           <p class="label">07</p>
-          <h2 class="h h2">About Me</h2>
+          <h2 class="h h2" data-split>About Me</h2>
         </div>
-        <p class="h about__lead">Most founders I've worked with didn't struggle with vision. They struggled with everything that comes after.</p>
+        <p class="h about__lead" data-split>Most founders I've worked with didn't struggle with vision. They struggled with everything that comes after.</p>
         <p class="body">Too many ideas at once, too many moving parts, and a team trying to keep up without quite knowing how. The gap between where a founder wants to go and what the business can actually execute on, that's where things break down.</p>
         <p class="body">After 7 years working alongside founders across different industries and stages, from early scrappy startups to scaling businesses, I've seen the same patterns repeat. The operational challenges that slow companies down are rarely unique. What's unique is how each founder's brain shapes them. That's the gap I work in.</p>
         <p class="body">I partner with founders and the people around them, VAs, EAs, operators, COOs, to build the operational layer that makes execution actually possible. Not generic systems copied from a playbook, but structures that work for how the founder actually thinks and operates.</p>
@@ -349,6 +380,10 @@
     <div class="marquee__track">
       <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
       <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
+      <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
+      <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
+      <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
+      <div class="marquee__group"><span>Operations partner</span><span>Systems that hold</span><span>ADHD-founder environments</span><span>Automations &amp; AI</span><span>Fractional COO</span></div>
     </div>
   </div>
 
@@ -362,9 +397,9 @@
       <span class="bg-along"></span>
     </div>
     <div class="wrap cta__inner">
-      <h2 class="h cta__title">Ready to build the <em class="acc">systems</em> that hold?</h2>
-      <p class="cta__text">Book a free 60-minute discovery call and walk out with clarity on where to start.</p>
-      <a class="btn btn-red" href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer">Book a Call<svg class="arr" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5"/><path d="M4.75 3.5h5.75v5.75"/></svg></a>
+      <h2 class="h cta__title" data-split>Ready to build the <em class="acc">systems</em> that hold?</h2>
+      <p class="cta__text" data-reveal style="--delay: 200ms">Book a free 60-minute discovery call and walk out with clarity on where to start.</p>
+      <a class="btn btn-red" data-reveal style="--delay: 350ms" href="https://calendar.app.google/o9teNE9FFQX8ViUQ8" target="_blank" rel="noopener noreferrer">Book a Call<svg class="arr" width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5"/><path d="M4.75 3.5h5.75v5.75"/></svg></a>
     </div>
   </section>
 
@@ -374,16 +409,16 @@
 <footer class="ft">
   <p class="h ft__wordmark" aria-hidden="true">Maria Dopheide</p>
   <div class="wrap ft__inner">
-    <div class="bento ft__grid">
-      <a class="tile ftile ftile--email" href="mailto:miadopheide@gmail.com">
+    <div class="bento ft__grid" data-stagger>
+      <a data-spot class="tile ftile ftile--email" href="mailto:miadopheide@gmail.com">
         <span class="ftile__top"><span class="eyebrow">Email</span><span class="icon-ring"><svg class="arr" width="18" height="18" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5"/><path d="M4.75 3.5h5.75v5.75"/></svg></span></span>
         <span class="h ftile__value">miadopheide<br>@gmail.com</span>
       </a>
-      <a class="tile ftile ftile--linkedin" href="https://www.linkedin.com/in/mdopheide/" target="_blank" rel="noopener noreferrer">
+      <a data-spot class="tile ftile ftile--linkedin" href="https://www.linkedin.com/in/mdopheide/" target="_blank" rel="noopener noreferrer">
         <span class="ftile__top"><span class="eyebrow">LinkedIn</span><span class="icon-ring"><svg class="arr" width="18" height="18" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3.5 10.5 10.5 3.5"/><path d="M4.75 3.5h5.75v5.75"/></svg></span></span>
         <span class="h ftile__value">/in/<em class="acc">mdopheide</em></span>
       </a>
-      <nav class="tile ftile-nav" aria-label="Footer">
+      <nav data-spot class="tile ftile-nav" aria-label="Footer">
         <span class="eyebrow">Navigate</span>
         <ul class="links">
           <li><a href="#what">What I Do</a></li>
@@ -396,7 +431,7 @@
       </nav>
     </div>
     <div class="ft-row">
-      <img class="ft__logo" src="assets/images/logo.png" alt="Maria Dopheide" loading="lazy">
+      <svg class="logo-mark" viewBox="0 0 1539 640" fill="currentColor" role="img" aria-label="Maria Dopheide"><path d="M0 630V179A196.25 179 0 0 1 392.5 179V460A50.75 51 0 0 0 494 460V179A195.75 179 0 0 1 885.5 179V630H740V179A50.25 51 0 0 0 639.5 179V460A196.25 180 0 0 1 247 460V179A50.75 51 0 0 0 145.5 179V630Z"/><path fill-rule="evenodd" d="M987 10H1241A298 310 0 0 1 1241 630H987ZM1137 136H1229A160 184 0 0 1 1229 504H1137Z"/></svg>
       <p>© 2026 Maria Dopheide. Operations Partner &amp; Consultant.</p>
     </div>
   </div>
