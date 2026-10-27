@@ -52,18 +52,45 @@ if(root.classList.contains('motion')){
   });
 
   // Reveal once, as each block comes into view.
-  const reveal = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if(!entry.isIntersecting) return;
-      entry.target.classList.add('is-in');
-      reveal.unobserve(entry.target);
-    });
-  }, { rootMargin: '0px 0px -10% 0px' });
+  // Photo wipes wait until their images have loaded: the large photos are lazy,
+  // and a wipe that runs on an empty frame ends with the photo popping in.
+  const imagesReady = el => Promise.all([...el.querySelectorAll('img')].map(img =>
+    img.complete ? null : new Promise(done => {
+      img.addEventListener('load', done, { once: true });
+      img.addEventListener('error', done, { once: true });
+    })));
+  const show = el => {
+    if(el.dataset.reveal === 'clip') imagesReady(el).then(() => el.classList.add('is-in'));
+    else el.classList.add('is-in');
+  };
+  // How much of a block must be on screen before it starts: text as it enters,
+  // photo wipes once a third of the screen shows the frame (otherwise a tall photo
+  // wipes open below the fold and is never seen). data-reveal-at="100" overrides
+  // this with a distance in pixels.
+  const thresholdFor = el => el.dataset.revealAt ? `${el.dataset.revealAt}px`
+    : el.dataset.reveal === 'clip' ? '35%' : '10%';
+  const observers = new Map();
+  const observe = (el, threshold) => {
+    if(!observers.has(threshold)){
+      const io = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(!entry.isIntersecting) return;
+          show(entry.target);
+          io.unobserve(entry.target);
+        });
+      }, { rootMargin: `0px 0px -${threshold} 0px` });
+      observers.set(threshold, io);
+    }
+    observers.get(threshold).observe(el);
+  };
+  const shownPx = threshold => threshold.endsWith('%')
+    ? innerHeight * parseFloat(threshold) / 100 : parseFloat(threshold);
   // What is already on screen starts at once, without waiting for the observer;
   // reading the rect first commits the hidden state, so the transition still plays.
   document.querySelectorAll('[data-split], [data-reveal], [data-stagger]').forEach(el => {
-    if(el.getBoundingClientRect().top < innerHeight * 0.9) el.classList.add('is-in');
-    else reveal.observe(el);
+    const threshold = thresholdFor(el);
+    if(el.getBoundingClientRect().top < innerHeight - shownPx(threshold)) show(el);
+    else observe(el, threshold);
   });
 
   // Pointer effects, only with a real mouse.

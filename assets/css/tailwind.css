@@ -795,12 +795,19 @@
     clip-path: inset(0 0 0 0);
     scale: var(--rest-scale, 1);
   }
-  /* tall photos enter with their top already on screen, so they wipe downward and start fast */
-  .motion [data-reveal="clip"] img:is(.contact__photo img, .about__main) {
-    transition: clip-path 1.1s var(--ease-out) var(--delay, 0ms), scale 1.6s var(--ease-out) var(--delay, 0ms);
+  /* Tall photos: the frame wipes open downward, not the zoomed image inside it.
+     The image overhangs its frame by the zoom, so a wipe on the image spent most
+     of its run outside the frame and crossed the visible part in a blink. */
+  .motion :is(.contact__photo, .about__photos)[data-reveal="clip"] {
+    clip-path: inset(0 0 0 0);
+    transition: clip-path 1.4s var(--ease-in-out) var(--delay, 0ms);
   }
-  .motion [data-reveal="clip"]:not(.is-in) img:is(.contact__photo img, .about__main) {
+  .motion :is(.contact__photo, .about__photos)[data-reveal="clip"]:not(.is-in) {
     clip-path: inset(0 0 100% 0);
+  }
+  .motion [data-reveal="clip"] img:is(.contact__photo img, .about__main) {
+    clip-path: none;
+    transition: scale 1.8s var(--ease-out) var(--delay, 0ms);
   }
   .motion .about__inset {
     transition: opacity 0.8s var(--ease-out) 0.45s, translate 1.2s var(--ease-out) 0.45s, scale 1.2s var(--ease-out) 0.45s;
