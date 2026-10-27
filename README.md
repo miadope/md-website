@@ -110,6 +110,10 @@ wide screens never show a gap.
 - `assets/images/og-image.jpg` (1200×630) is the preview shown when the link
   is shared; it is referenced by absolute URL in the Open Graph tags, so it
   only shows once the site is live on mariadopheide.com.
+  Its source is `design/og-card.html` (site fonts and colours, About
+  portrait); after editing it, run `npm run og` to re-render the JPEG.
+  Social networks cache previews by URL, so bump `?v=` on the `og:image`
+  tag in `index.html` whenever the picture changes.
 
 ## Fonts
 

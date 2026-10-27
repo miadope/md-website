@@ -198,7 +198,7 @@
     padding-block: 22px;
   }
   /* the logo is inline SVG painted with currentColor, so CSS sets its colour */
-  .logo-mark { display: block; width: 62px; height: auto; color: var(--color-accent); }
+  .logo-mark { display: block; width: 48px; height: auto; color: var(--color-accent); }
   .nav { display: flex; gap: 34px; }
   .nav a {
     padding: 6px 0;
@@ -511,7 +511,7 @@
   .review-card figcaption { font: 700 13px/1.4 var(--font-sans); }
 
   /* ── 07 About: photo left, text right ───────────────────── */
-  .about { background: linear-gradient(180deg, var(--color-sand), #28211A); }
+  .about { background: linear-gradient(180deg, var(--color-sand), #28211A); border-top: 1px solid var(--color-rule); }
   .split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
   .about__photos { position: relative; min-height: 560px; overflow: hidden; }
   .about__main {
@@ -672,7 +672,7 @@
     margin-top: 24px;
     padding: 0 4px;
   }
-  .ft-row .logo-mark { margin-block: 4px; }  /* keeps the row at the old 34px logo height */
+  .ft-row .logo-mark { margin-block: 7px; }  /* 48px logo is 20px tall; keeps the row at 34px */
   .ft-row p { font-size: 13px; color: var(--color-muted); }
 
   /* ── Brand graphics ─────────────────────────────────────────

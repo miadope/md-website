@@ -5,7 +5,8 @@
   "scripts": {
     "build": "tailwindcss -i assets/css/tailwind.css -o assets/css/styles.css --minify",
     "watch": "tailwindcss -i assets/css/tailwind.css -o assets/css/styles.css --watch",
-    "serve": "python3 -m http.server 8765"
+    "serve": "python3 -m http.server 8765",
+    "og": "\"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome\" --headless=new --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --virtual-time-budget=8000 --allow-file-access-from-files --screenshot=design/og.png \"file://$PWD/design/og-card.html\" && sips -s format jpeg -s formatOptions 85 design/og.png --out assets/images/og-image.jpg && rm design/og.png"
   },
   "repository": {
     "type": "git",
